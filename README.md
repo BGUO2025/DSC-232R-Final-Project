@@ -221,4 +221,4 @@ dropna() – use to drop missing data/duplicate handling
 fillna() – in the event we need to make a 0 for the helpfulness_ratio
 lower() for the  text, length() for length, withColumn() may also help.
 
-Link to Jupyter notebook for README.md: [https://github.com/BGUO2025/DSC-232R-Final-Project/blob/main/README.md](https://github.com/BGUO2025/DSC-232R-Final-Project/blob/Milestone2/README.md)
+Link to Jupyter notebook for README.md: [[https://github.com/BGUO2025/DSC-232R-Final-Project/blob/main/README.md](https://github.com/BGUO2025/DSC-232R-Final-Project/blob/Milestone2/Project_Milestone2.ipynb)]([https://github.com/BGUO2025/DSC-232R-Final-Project/blob/Milestone2/README.md](https://github.com/BGUO2025/DSC-232R-Final-Project/blob/Milestone2/Project_Milestone2.ipynb))
