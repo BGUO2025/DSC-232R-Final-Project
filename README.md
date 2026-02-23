@@ -1,4 +1,4 @@
-# 232R-Project-Mileston2
+# 232R-Project-Milestone2
 
 [LINK TO THIS DOCUMENT in google docs](https://docs.google.com/document/d/1hr2qAm_SxXNxnPS_RZpy2czIRufkDrJxkSl5dx900WE/edit?usp=sharing)
 (README.MD files do not convert images. Here is the link to our original documentation page)
