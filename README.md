@@ -1,14 +1,13 @@
 # 232R-Project-Mileston2
 
-LINK TO THIS DOCUMENT: https://docs.google.com/document/d/1hr2qAm_SxXNxnPS_RZpy2czIRufkDrJxkSl5dx900WE/edit?usp=sharing
+[LINK TO THIS DOCUMENT in google docs](https://docs.google.com/document/d/1hr2qAm_SxXNxnPS_RZpy2czIRufkDrJxkSl5dx900WE/edit?usp=sharing)
 (README.MD files do not convert images. Here is the link to our original documentation page)
 GitHub Repository Setup (2 points)
 GitHub ID: BGUO2025
-Create a GitHub Repository (Public or Private—it will need to be Public for final submission) and add your group members as collaborators
+Create a [GitHub Repository](https://github.com/BGUO2025/DSC-232R-Final-Project) (Public or Private—it will need to be Public for final submission)
 https://github.com/BGUO2025/DSC-232R-Final-Project
-TODO: Laura Ngo Pooja Panchal please add yourselves to the repo
 Provide a link to your dataset in your README.md: 
-LINK to the Amazon Customer Reviews dataset
+[LINK](https://www.kaggle.com/datasets/cynthiarempel/amazon-us-customer-reviews-dataset?select=amazon_reviews_us_Sports_v1_00.tsv) to the Amazon Customer Reviews dataset
 https://www.kaggle.com/datasets/cynthiarempel/amazon-us-customer-reviews-dataset?select=amazon_reviews_us_Sports_v1_00.tsv
 SDSC Expanse Environment Setup (2 points)
 Document your SDSC Expanse setup in your README.md (SEE BELOW)
@@ -222,4 +221,4 @@ dropna() – use to drop missing data/duplicate handling
 fillna() – in the event we need to make a 0 for the helpfulness_ratio
 lower() for the  text, length() for length, withColumn() may also help.
 
-Link to Jupyter notebook for README.md:: https://github.com/BGUO2025/DSC-232R-Final-Project/blob/main/README.md
+Link to Jupyter notebook for README.md: [https://github.com/BGUO2025/DSC-232R-Final-Project/blob/main/README.md](https://github.com/BGUO2025/DSC-232R-Final-Project/blob/Milestone2/README.md)
