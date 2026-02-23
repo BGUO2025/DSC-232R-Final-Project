@@ -1,6 +1,6 @@
 # 232R-Project-Mileston2
 
-LINK TO THIS DOCUMENT 
+LINK TO THIS DOCUMENT: https://docs.google.com/document/d/1hr2qAm_SxXNxnPS_RZpy2czIRufkDrJxkSl5dx900WE/edit?usp=sharing
 (README.MD files do not convert images. Here is the link to our original documentation page)
 GitHub Repository Setup (2 points)
 GitHub ID: BGUO2025
@@ -189,7 +189,7 @@ Clearly explain each plot and what insights it provides
 
 
 For image data: plot example classes
-N/A not applicable:
+N/A not applicable because we aren’t working with image data
 
 
 Preprocessing Plan (3 points)
@@ -222,4 +222,4 @@ dropna() – use to drop missing data/duplicate handling
 fillna() – in the event we need to make a 0 for the helpfulness_ratio
 lower() for the  text, length() for length, withColumn() may also help.
 
-Link your Jupyter notebook to your README.md. All code and notebooks must be uploaded to your repo.
+Link to Jupyter notebook for README.md:: https://github.com/BGUO2025/DSC-232R-Final-Project/blob/main/README.md
