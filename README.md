@@ -24,12 +24,12 @@ We hope to display how large-scale customer review datasets can be transformed i
 
 ## Table of Contents
 - [Github](#github)
-- [SDSC Expanse Setup](#sdsc-expanse-setup)
-- [Data Exploration](#data-exploration)
+- [SDSC Expanse Setup](#sdsc)
+- [Data Exploration](#data)
 - [Plots](#plots)
-- [Preprocessing](#preprocessing2)
-- [Complete Preprocessing](#preprocessing3)
-- [Machine Learning](#machine-learning)
+- [Preprocessing](#p2)
+- [Complete Preprocessing](#p3)
+- [Machine Learning](#ml)
 - [Fitting Analysis](#fitting-analysis)
 - [Conclusion](#conclusion)
 
@@ -101,7 +101,7 @@ We then loaded our data with the following schema:
 * When the cached SparkSQL Dataframe performed operations that required additional memory, Spark evicted cached data, spilling it to disk. The temporary storage quickly became full, causing constant crashes on the Jupyter kernel.
 * Using SLURM commands, we hope to allocate more than one node to address memory limitations. Regardless, caching the entire dataframe may not be an appropriate or computationally effective approach.
 
-<a id="sdsc-expanse-setup"></a>
+<a id="sdsc"></a>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=SDSC Expanse Setup&fontSize=30&fontColor=ffffff"/>
 
@@ -214,7 +214,7 @@ df['maxMemory_GB'] = (df['maxMemory'] / (1024**3)).round(2)
 </table>
 </div>
 
-<a id="data-exploration"></a>
+<a id="data"></a>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data Exploration &fontSize=30&fontColor=ffffff"/>
 
@@ -317,7 +317,7 @@ This provides a simple distribution of product IDs in relation to the previous p
 Here we examined both the linear and log relationships of average ratingand number of reviews. This relationship suggests that products with few reviews tend to exhibit higher variability inr atings. However, as the reviews increase in amount, the average rating appears to stabilities, indicating that larger review counts provide more reliable estimates of customer satisfaction. 
 
 
-<a id="preprocessing2"></a>
+<a id="p2"></a>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data Preprocessing &fontSize=30&fontColor=ffffff"/>
 
@@ -342,7 +342,7 @@ Several transformations will be applied to improvement dataset usefulness for ma
 Data preprocessing will use Apache Spark operations to clean and prepare the dataset. We will filter relevant records, use operations such as select(), filter(), and withColumn() to isolate necessary fields and create new features, and dropna() and fillna() to remove values with missing or duplicate values and assign default values, respectively. Additionally, using lower() and length(), we will convert review text to lowercase and compute each review's length.
 
 ## Milestone 3
-<a id="preprocessing3"></a>
+<a id="p3"></a>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Completed Data Preprocessing&fontSize=30&fontColor=ffffff"/>
 
@@ -760,7 +760,7 @@ print(f"Preprocessing took: {elapsed:.2f} seconds")
 Preprocessing took: 222.31 seconds
 ```
 
-<a id="machine-learning"></a>
+<a id="ml"></a>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Machine Learning&fontSize=30&fontColor=ffffff"/>
 
