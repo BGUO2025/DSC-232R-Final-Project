@@ -19,40 +19,39 @@
 
 <!-- SIDEBAR -->
 
-<div class="sidebar">
+    <div class="sidebar">
 
-<div class="logo">Analytics</div>
+    <div class="logo">Analytics</div>
 
-<div class="sidebar-menu">
+        <div class="sidebar-menu">
 
-<div class="menu-item active">
-<i class="fa-solid fa-gauge"></i>
-<p>Overview</p>
-</div>
+            <div class="menu-item active">
+                <i class="fa-solid fa-gauge"></i>
+                <p>Overview</p>
+            </div>
 
-<div class="menu-item">
-<i class="fa-solid fa-users"></i>
-<p>Dataset</p>
-</div>
+            <div class="menu-item">
+                <i class="fa-solid fa-users"></i>
+                <p>Preprocessing</p>
+            </div>
 
-<div class="menu-item">
-<i class="fa-solid fa-diagram-project"></i>
-<p>Data Exploration</p>
-</div>
+            <div class="menu-item">
+                <i class="fa-solid fa-diagram-project"></i>
+                <p>EDA</p>
+            </div>
 
-<div class="menu-item">
-<i class="fa-solid fa-message"></i>
-<p>Analysis</p>
-</div>
+            <div class="menu-item">
+                <i class="fa-solid fa-message"></i>
+                <p>Analysis</p>
+            </div>
 
-<div class="menu-item">
-<i class="fa-solid fa-gear"></i>
-<p>Conclusion</p>
-</div>
+            <div class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                <p>Conclusion</p>
+            </div>
 
-</div>
-
-</div>
+        </div>
+    </div>
 
 
 <!-- MAIN CONTENT -->
@@ -60,40 +59,48 @@
 <div class="main">
 
 <header>
-<h1>Amazon Review Score Prediction</h1>
-<div class="user">PySpark ML Pipeline</div>
+    <h1>Amazon Review Score Prediction</h1>
+    <div class="user">PySpark ML Pipeline</div>
 </header>
 
 
 <!-- STAT CARDS -->
 
 <div class="cards">
+    <div class="card">
+        <h2>
+            <a href="https://www.kaggle.com/datasets/cynthiarempel/amazon-us-customer-reviews-dataset" 
+            target="_blank">
+            Kaggle
+            </a>
+        </h2>
+        <p>Source</p>
+    </div>
 
-<div class="card">
-<h2>102.9M</h2>
-<p>Total Reviews</p>
-</div>
+    <div class="card">
+        <h2>
+            <a href="https://github.com/BGUO2025/DSC-232R-Final-Project" 
+            target="_blank">
+            Github
+            </a>
+        </h2>
+        <p>Source</p>
+    </div>
 
-<div class="card">
-<h2>117.7GB</h2>
-<p>Dataset Size</p>
-</div>
+    <div class="card">
+        <h2>102.9M</h2>
+        <p>Total Reviews</p>
+    </div>
 
-<div class="card">
-<h2>4.16</h2>
-<p>Mean Rating</p>
-</div>
+    <div class="card">
+        <h2>117.7GB</h2>
+        <p>Dataset Size</p>
+    </div>
 
-<div class="card">
-<h2>721K</h2>
-<p>Blurb</p>
-</div>
-
-<div class="card">
-<h2>155K</h2>
-<p>Blurb</p>
-</div>
-
+    <div class="card">
+        <h2>4.16</h2>
+        <p>Mean Star Rating</p>
+    </div>
 
 </div>
 
@@ -101,57 +108,143 @@
 <!-- STAR RATING DISTRIBUTION -->
 
 <div class="panel">
-<h3>Star Rating Distribution</h3>
-<canvas id="ratingChart"></canvas>
+    <h3>Star Rating Distribution</h3>
+        <canvas id="ratingChart" width="400" height="200"></canvas>
+</div>
+
+<!-- Train/Test Errors -->
+<div class="panel charts-row">
+    <div class="chart-container">
+        <h3>Train/Test Errors</h3>
+        <canvas id="traintesterrors"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h3>Random Forest Feature Importance</h3>
+        <canvas id="featureimportance"></canvas>
+    </div>
+</div>
+
+<!-- FEATURE ENGINEERING -->
+
+<div class="panel">
+    <h3>Feature Engineering</h3>
+    
+    <div class="feature-cards">
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                Helpfulness Ratio
+            </div>
+            <div class="card-back">
+                Proportion of helpful votes out of total votes
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                Review Length
+            </div>
+            <div class="card-back">
+                Total characters in the review body
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                Review Word Count
+            </div>
+            <div class="card-back">
+                Number of words in the review body
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                Headline Length
+            </div>
+            <div class="card-back">
+                Number of characters in the review headline
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                Headline Word Count
+            </div>
+            <div class="card-back">
+                Number of words in the review headline
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                Category Encoding
+            </div>
+            <div class="card-back">
+                Numerical encoding of product category for ML
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                Verified Purchase Encoding
+            </div>
+            <div class="card-back">
+                Encoding of whether the purchase was verified
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <!-- MODEL RESULTS -->
 
 <div class="panel">
+    <h3>Model Performance</h3>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Train Accuracy</th>
+                <th>Validation Accuracy</th>
+            </tr>
 
-<h3>Model Performance</h3>
+            <tr>
+                <td>Logistic Regression</td>
+                <td>0.6084</td>
+                <td>0.6069</td>
+            </tr>
 
-<table>
+            <tr>
+                <td>Random Forest Set A</td>
+                <td>0.6098</td>
+                <td>0.6083</td>
+            </tr>
 
-<tr>
-<th>Model</th>
-<th>Train Accuracy</th>
-<th>Validation Accuracy</th>
-</tr>
+            <tr>
+                <td>Random Forest Set B</td>
+                <td>0.6085</td>
+                <td>0.6070</td>
+            </tr>
 
-<tr>
-<td>Logistic Regression</td>
-<td>0.6083</td>
-<td>0.6067</td>
-</tr>
-
-<tr>
-<td>Random Forest</td>
-<td>0.6096</td>
-<td>0.6080</td>
-</tr>
-
-</table>
-
-</div>
-
-
-<!-- FEATURE ENGINEERING -->
-
-<div class="panel">
-
-<h3>Feature Engineering</h3>
-
-<ul>
-<li>Helpfulness Ratio = helpful_votes / total_votes</li>
-<li>Review Length</li>
-<li>Review Word Count</li>
-<li>Headline Length</li>
-<li>Headline Word Count</li>
-<li>Category Encoding</li>
-<li>Verified Purchase Encoding</li>
-</ul>
-
+            <tr>
+                <td>Random Forest Set C</td>
+                <td>0.6119</td>
+                <td>0.6103</td>
+            </tr>
+        </table>
 </div>
 
 </div>
