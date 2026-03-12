@@ -103,7 +103,7 @@ We then loaded our data with the following schema:
 
 <a id="sdsc"></a>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=SDSC Expanse Setup&fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=SDSC%20Expanse%20Setup&fontSize=30&fontColor=ffffff"/>
 
 This project uses **PySpark** for distributed computing and **Matplotlib/Seaborn** for visualizations. 
 
@@ -216,7 +216,7 @@ df['maxMemory_GB'] = (df['maxMemory'] / (1024**3)).round(2)
 
 <a id="data"></a>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data Exploration &fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data%20Exploration&fontSize=30&fontColor=ffffff" />
 
 **Checked aspects** 
 * Data size
@@ -260,7 +260,7 @@ Missing values are extremely rare, showing as below 0.02% across all features. G
 
 <a id="plots"></a>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Plots &fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Plots&fontSize=30&fontColor=ffffff" />
 
 * Product categories distribution 
 <p align="center">
@@ -319,7 +319,7 @@ Here we examined both the linear and log relationships of average ratingand numb
 
 <a id="p2"></a>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data Preprocessing &fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data%20Preprocessing&fontSize=30&fontColor=ffffff" />
 
 The following sections describe the specific steps to prepare the data for modeling, including missing value handling, feature transformations, and balancing of target classes.
 
@@ -344,7 +344,7 @@ Data preprocessing will use Apache Spark operations to clean and prepare the dat
 ## Milestone 3
 <a id="p3"></a>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Completed Data Preprocessing&fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Completed%20Data%20Preprocessing&fontSize=30&fontColor=ffffff" />
 
 **Feature Selection**
 
@@ -762,7 +762,7 @@ Preprocessing took: 222.31 seconds
 
 <a id="ml"></a>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Machine Learning&fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Machine%20Learning&fontSize=30&fontColor=ffffff" />
 
 ```
 start = time.time()
