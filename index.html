@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amazon Review ML Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">Analytics</div>
+
+<div class="sidebar-menu">
+
+<div class="menu-item active">
+<i class="fa-solid fa-gauge"></i>
+<p>Overview</p>
+</div>
+
+<div class="menu-item">
+<i class="fa-solid fa-users"></i>
+<p>Dataset</p>
+</div>
+
+<div class="menu-item">
+<i class="fa-solid fa-diagram-project"></i>
+<p>Data Exploration</p>
+</div>
+
+<div class="menu-item">
+<i class="fa-solid fa-message"></i>
+<p>Analysis</p>
+</div>
+
+<div class="menu-item">
+<i class="fa-solid fa-gear"></i>
+<p>Conclusion</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+<header>
+<h1>Amazon Review Score Prediction</h1>
+<div class="user">PySpark ML Pipeline</div>
+</header>
+
+
+<!-- STAT CARDS -->
+
+<div class="cards">
+
+<div class="card">
+<h2>102.9M</h2>
+<p>Total Reviews</p>
+</div>
+
+<div class="card">
+<h2>117.7GB</h2>
+<p>Dataset Size</p>
+</div>
+
+<div class="card">
+<h2>4.16</h2>
+<p>Mean Rating</p>
+</div>
+
+<div class="card">
+<h2>721K</h2>
+<p>Blurb</p>
+</div>
+
+<div class="card">
+<h2>155K</h2>
+<p>Blurb</p>
+</div>
+
+
+</div>
+
+
+<!-- STAR RATING DISTRIBUTION -->
+
+<div class="panel">
+<h3>Star Rating Distribution</h3>
+<canvas id="ratingChart"></canvas>
+</div>
+
+<!-- MODEL RESULTS -->
+
+<div class="panel">
+
+<h3>Model Performance</h3>
+
+<table>
+
+<tr>
+<th>Model</th>
+<th>Train Accuracy</th>
+<th>Validation Accuracy</th>
+</tr>
+
+<tr>
+<td>Logistic Regression</td>
+<td>0.6083</td>
+<td>0.6067</td>
+</tr>
+
+<tr>
+<td>Random Forest</td>
+<td>0.6096</td>
+<td>0.6080</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- FEATURE ENGINEERING -->
+
+<div class="panel">
+
+<h3>Feature Engineering</h3>
+
+<ul>
+<li>Helpfulness Ratio = helpful_votes / total_votes</li>
+<li>Review Length</li>
+<li>Review Word Count</li>
+<li>Headline Length</li>
+<li>Headline Word Count</li>
+<li>Category Encoding</li>
+<li>Verified Purchase Encoding</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
