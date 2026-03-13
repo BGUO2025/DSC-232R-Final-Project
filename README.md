@@ -33,7 +33,9 @@ We hope to display how large-scale customer review datasets can be transformed i
 ## Milestone 2
 <a id="github"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Github&fontSize=30&fontColor=ffffff"/>
+</p>
 
 **GitHub Organization / ID:**  
 BGUO2025
@@ -100,8 +102,9 @@ We then loaded our data with the following schema:
 
 <a id="sdsc"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=SDSC%20Expanse%20Setup&fontSize=30&fontColor=ffffff"/>
-
+</p>
 This project uses **PySpark** for distributed computing and **Matplotlib/Seaborn** for visualizations. 
 
 To initialize our spark, we decided to utilize a 4GB exection size as our driving factor from this set based on previous experience working with social media analysis. This provides us with adequate memory headroom for groupBy and aggregation operations without creating excessively large JVM heaps that can otherwise increase garbage collection overhead. 
@@ -213,7 +216,9 @@ df['maxMemory_GB'] = (df['maxMemory'] / (1024**3)).round(2)
 
 <a id="data"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data%20Exploration&fontSize=30&fontColor=ffffff" />
+</p><
 
 **Checked aspects** 
 * Data size
@@ -257,8 +262,9 @@ Missing values are extremely rare, showing as below 0.02% across all features. G
 
 <a id="plots"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Plots&fontSize=30&fontColor=ffffff" />
-
+</p>
 * Product categories distribution 
 <p align="center">
   <img src="images/Product-Categories.png" width="600" height = "200">
@@ -316,7 +322,9 @@ Here we examined both the linear and log relationships of average ratingand numb
 
 <a id="p2"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data%20Preprocessing&fontSize=30&fontColor=ffffff" />
+</p>
 
 The following sections describe the specific steps to prepare the data for modeling, including missing value handling, feature transformations, and balancing of target classes.
 
@@ -341,7 +349,9 @@ Data preprocessing will use Apache Spark operations to clean and prepare the dat
 ## Milestone 3
 <a id="p3"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Completed%20Data%20Preprocessing&fontSize=30&fontColor=ffffff" />
+</p>
 
 **Feature Selection**
 
@@ -759,7 +769,9 @@ Preprocessing took: 222.31 seconds
 
 <a id="ml"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Machine%20Learning&fontSize=30&fontColor=ffffff" />
+</p>
 
 ```
 start = time.time()
@@ -1142,7 +1154,9 @@ To better understand which features contribute most to predicting review ratings
 
 <a id="fitting-analysis"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Fitting%20Analysis&fontSize=30&fontColor=ffffff"/>
+</p>
 
 **Model Fit in Fitting Graph**
 
@@ -1174,7 +1188,9 @@ On one hand, Random Forests reduce variance through parallel and independent tre
 
 <a id="conclusion"></a>
 
+<p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Conclusion&fontSize=30&fontColor=ffffff"/>
+</p>
 
 **First Model Conclusion**
 
