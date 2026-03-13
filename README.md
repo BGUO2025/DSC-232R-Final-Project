@@ -1,10 +1,7 @@
 
-<div align="center" 
-    style="background-color:#3B95D9; padding:15px; border-radius:8px; border:none;">
-  <h1 style="color:black; margin:0; border:none; line-height:1;">
-    Amazon Data Analysis & Review Score Prediction
-    </h1>
-</div>
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=rect&color=3B95D9&height=80&section=header&text=Amazon%20Data%20Analysis%20And%20Review%20Score%20Prediction&fontSize=32&fontColor=ffffff"/>
+</p>
 
 ## Project Overview 
 This project analyzes Amazon U.S customer reviews to predict review scores (star_rating) using **PySpark** for large-scale data processing and machine learning. The dataset contains over **102 million product reviews** collected from the Amazon marketplace between **1995 and 2015**, along with associated metadata such as product category, helpfulness votes, purchase verification status, and review text. 
