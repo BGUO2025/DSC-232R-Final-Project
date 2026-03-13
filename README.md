@@ -25,7 +25,7 @@ We hope to display how large-scale customer review datasets can be transformed i
 - [Data Exploration](#data)
 - [Plots](#plots)
 - [Preprocessing](#p2)
-- [Complete Preprocessing](#p3)
+- [Data Preprocessing Part 2](#p3)
 - [Machine Learning](#ml)
 - [Fitting Analysis](#fitting-analysis)
 - [Conclusion](#conclusion)
@@ -350,7 +350,7 @@ Data preprocessing will use Apache Spark operations to clean and prepare the dat
 <a id="p3"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Completed%20Data%20Preprocessing&fontSize=30&fontColor=ffffff" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data%20Preprocessing%20Part%202&fontSize=30&fontColor=ffffff" />
 </p>
 
 **Feature Selection**
