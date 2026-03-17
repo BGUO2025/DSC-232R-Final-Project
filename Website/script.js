@@ -1,5 +1,31 @@
-// STAR RATING DISTRIBUTION
+// HOVER ACTIVE ICON ON SIDEBAR 
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".menu-item");
 
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach(section => {
+const sectionTop = section.offsetTop;
+const sectionHeight = section.clientHeight;
+
+if (pageYOffset >= sectionTop - 200) {
+current = section.getAttribute("id");
+}
+});
+
+navLinks.forEach(link => {
+link.classList.remove("active");
+
+if(link.getAttribute("href") === "#" + current){
+link.classList.add("active");
+}
+});
+
+});
+
+// STAR RATING DISTRIBUTION
 new Chart(document.getElementById("ratingChart"), {
   type: "bar",
   data: {
@@ -7,21 +33,25 @@ new Chart(document.getElementById("ratingChart"), {
     datasets: [{
       label: "Number of Reviews",
       data: [5210000, 8370000, 9030000, 17680000, 62610000],
-      backgroundColor: "#458cd8", // <-- set the bar color here
-      borderRadius: 5,             // optional: round the edges
-      barPercentage: 0.8           // optional: narrower bars for cleaner look
+      backgroundColor: "#0c2d51",
+      borderRadius: 5,
+      barPercentage: 0.8
     }]
   },
   options: {
     responsive: true,
     plugins: {
-      legend: {
-        display: false
-      }
+      legend: { display: false }
     },
     scales: {
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        ticks: {
+          // Format Y-axis labels
+          callback: function(value) {
+            return (value / 1000000) + "M"; // convert to millions
+          }
+        }
       }
     }
   }
