@@ -19,236 +19,294 @@
 
 <!-- SIDEBAR -->
 
-    <div class="sidebar">
-
+<div class="sidebar">
     <div class="logo">Analytics</div>
-
-        <div class="sidebar-menu">
-
-            <div class="menu-item active">
-                <i class="fa-solid fa-gauge"></i>
-                <p>Overview</p>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-solid fa-users"></i>
-                <p>Preprocessing</p>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-solid fa-diagram-project"></i>
-                <p>EDA</p>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-solid fa-message"></i>
-                <p>Analysis</p>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-solid fa-gear"></i>
-                <p>Conclusion</p>
-            </div>
-
-        </div>
+    <div class="sidebar-menu">
+        <a href="#overview" class="menu-item">
+            <i class="fa-solid fa-gauge"></i>
+            <span>Overview</span>
+        </a>
+        <a href="#preprocessing" class="menu-item">
+            <i class="fa-solid fa-users"></i>
+            <span>Preprocessing</span>
+        </a>
+        <a href="#eda" class="menu-item">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>EDA</span>
+        </a>
+        <a href="#analysis" class="menu-item">
+            <i class="fa-solid fa-message"></i>
+            <span>Analysis</span>
+        </a>
+        <a href="#conclusion" class="menu-item">
+            <i class="fa-solid fa-gear"></i>
+            <span>Conclusion</span>
+        </a>
     </div>
-
+</div>
 
 <!-- MAIN CONTENT -->
-
 <div class="main">
 
-<header>
-    <h1>Amazon Review Score Prediction</h1>
-    <div class="user">PySpark ML Pipeline</div>
-</header>
+<!-- HERO + QUICK STATS -->
+<section class="hero">
 
+    <div class="hero-overlay"></div>
 
-<!-- STAT CARDS -->
+    <div class="hero-content">
+        <h1>Amazon Review Score Prediction</h1>
 
-<div class="cards">
-    <div class="card">
-        <h2>
-            <a href="https://www.kaggle.com/datasets/cynthiarempel/amazon-us-customer-reviews-dataset" 
-            target="_blank">
-            Kaggle
-            </a>
-        </h2>
-        <p>Source</p>
+        <p>
+        Predicting customer review ratings from over 102 million Amazon reviews 
+        using distributed machine learning pipelines built with PySpark.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#overview" class="btn-primary">Explore Project</a>
+            <a href="https://github.com/BGUO2025/DSC-232R-Final-Project" class="btn-secondary">View Github</a>
+        </div>
     </div>
 
-    <div class="card">
-        <h2>
-            <a href="https://github.com/BGUO2025/DSC-232R-Final-Project" 
-            target="_blank">
-            Github
-            </a>
-        </h2>
-        <p>Source</p>
-    </div>
+    <div class="quick-stats">
+        <div class="stat">
+            <h2>102.9M</h2>
+            <p>Reviews Processed</p>
+        </div>
 
-    <div class="card">
-        <h2>102.9M</h2>
-        <p>Total Reviews</p>
-    </div>
-
-    <div class="card">
-        <h2>117.7GB</h2>
-        <p>Dataset Size</p>
-    </div>
-
-    <div class="card">
-        <h2>4.16</h2>
-        <p>Mean Star Rating</p>
-    </div>
-
-</div>
-
-
-<!-- STAR RATING DISTRIBUTION -->
-
-<div class="panel">
-    <h3>Star Rating Distribution</h3>
-        <canvas id="ratingChart" width="400" height="200"></canvas>
-</div>
-
-<!-- Train/Test Errors -->
-<div class="panel charts-row">
-    <div class="chart-container">
-        <h3>Train/Test Errors</h3>
-        <canvas id="traintesterrors"></canvas>
-    </div>
-
-    <div class="chart-container">
-        <h3>Random Forest Feature Importance</h3>
-        <canvas id="featureimportance"></canvas>
-    </div>
-</div>
-
-<!-- FEATURE ENGINEERING -->
-
-<div class="panel">
-    <h3>Feature Engineering</h3>
+        <div class="stat">
+            <h2>117GB</h2>
+            <p>Data</p>
+        </div>
     
-    <div class="feature-cards">
-    <div class="card">
-        <div class="card-inner">
-            <div class="card-front">
-                Helpfulness Ratio
-            </div>
-            <div class="card-back">
-                Proportion of helpful votes out of total votes
-            </div>
+        <div class="stat">
+            <h2>0.61</h2>
+            <p>Best Accuracy</p>
         </div>
+    
+        <div class="stat">
+            <h2>PySpark</h2>
+            <p>Distributed ML</p>
+        </div>
+    </div>
+</section>
+    
+<!-- OVERVIEW -->
+
+<section id="overview">
+    <div class="section-header">
+        <span class="section-label">OVERVIEW</span>
+        <h2 class="section-title">
+            Predicting Review Ratings at Scale
+        </h2>
+            <p class="section-subtext">
+                This project analyzes <strong>Amazon U.S. customer reviews</strong> to predict review
+                scores (<strong>star_rating</strong>) using <strong>PySpark</strong> for scalable
+                data processing and machine learning. Due to the scale of the dataset, distributed computing techniques were
+                required to efficiently process and analyze the data. The objective is
+                to predict review ratings from textual and metadata features, enabling
+                practical applications such as automated sentiment analysis and product
+                quality monitoring. However, building predictive models at this scale introduces several
+                challenges including <strong>class imbalance in ratings</strong>,
+                <strong>high-dimensional text features</strong>, and the
+                <strong>computational complexity</strong> of large-scale processing.
+            </p>
     </div>
 
-    <div class="card">
-        <div class="card-inner">
-            <div class="card-front">
-                Review Length
-            </div>
-            <div class="card-back">
-                Total characters in the review body
-            </div>
+    <!-- Cards -->
+    <div class="cards">
+        <div class="card">
+            <h2>
+                <a href="https://www.kaggle.com/datasets/cynthiarempel/amazon-us-customer-reviews-dataset" 
+                    target="_blank">
+                    Kaggle
+                </a>
+            </h2>
+
+            <p>Source</p>
         </div>
+
+        <div class="card">
+            <h2>
+                <a href="https://github.com/BGUO2025/DSC-232R-Final-Project" 
+                    target="_blank">
+                    Github
+                </a>
+            </h2>
+
+            <p>Source</p>
+        </div>
+
+        <div class="card">
+            <h2>60%</h2>
+            <p>5★ Reviews</p>
+        </div>
+
+        <div class="card">
+            <h2>4</h2>
+            <p>Total Models</p>
+        </div>
+
+        <div class="card">
+            <h2>Random Forest</h2>
+            <p>Top Performing Model</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="star-rating-distribution">
+  <div class="two-column-wrapper">
+    
+    <div class="chart-wrapper">
+      <div class="panel">
+        <h2 class="section-title">Star Rating Distribution</h2>
+        <canvas id="ratingChart"></canvas>
+      </div>
     </div>
 
-    <div class="card">
-        <div class="card-inner">
-            <div class="card-front">
-                Review Word Count
-            </div>
-            <div class="card-back">
-                Number of words in the review body
-            </div>
-        </div>
+    <div class="text-wrapper">
+      <h2 class="text-title">Challenges</h2>
+      <p>
+        Working with over 102 million reviews introduces challenges such as
+        high-dimensional text data, class imbalance across ratings, and
+        computational overhead for distributed processing. The star rating
+        distribution helps identify these issues and informs feature engineering
+        and model selection.
+      </p>
     </div>
 
-    <div class="card">
-        <div class="card-inner">
-            <div class="card-front">
-                Headline Length
-            </div>
-            <div class="card-back">
-                Number of characters in the review headline
-            </div>
-        </div>
-    </div>
+  </div>
+</section>
 
-    <div class="card">
-        <div class="card-inner">
-            <div class="card-front">
-                Headline Word Count
-            </div>
-            <div class="card-back">
-                Number of words in the review headline
-            </div>
-        </div>
-    </div>
+<!-- PREPROCESSING -->
+ <h2> Data Preprocessing </h2>
+<section id="preprocessing">
+    <div class="panel">
+        <h3>Feature Engineering</h3>
 
-    <div class="card">
-        <div class="card-inner">
-            <div class="card-front">
-                Category Encoding
+        <div class="feature-cards">
+            <div class="feature-card">
+                <div class="feature-card-inner">
+                    <div class="feature-front">Helpfulness Ratio</div>
+                    <div class="feature-back">Proportion of helpful votes out of total votes</div>
+                </div>
             </div>
-            <div class="card-back">
-                Numerical encoding of product category for ML
-            </div>
-        </div>
-    </div>
 
-    <div class="card">
-        <div class="card-inner">
-            <div class="card-front">
-                Verified Purchase Encoding
+            <div class="feature-card">
+                <div class="feature-card-inner">
+                    <div class="feature-front">Review Length</div>
+                    <div class="feature-back">Total characters in the review body</div>
+                </div>
             </div>
-            <div class="card-back">
-                Encoding of whether the purchase was verified
+
+            <div class="feature-card">
+                <div class="feature-card-inner">
+                    <div class="feature-front">Review Word Count</div>
+                    <div class="feature-back">Number of words in the review body</div>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-card-inner">
+                    <div class="feature-front">Headline Length</div>
+                    <div class="feature-back">Number of characters in the review headline</div>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-card-inner">
+                    <div class="feature-front">Headline Word Count</div>
+                    <div class="feature-back">Number of words in the review headline</div>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-card-inner">
+                    <div class="feature-front">Category Encoding</div>
+                    <div class="feature-back">Numerical encoding of product category</div>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-card-inner">
+                    <div class="feature-front">Verified Purchase Encoding</div>
+                    <div class="feature-back">Encoding of whether purchase was verified</div>
+                </div>
             </div>
         </div>
     </div>
+</section>
+
+<!-- EDA -->
+<h2> Exploratory Data Analysis </h2>
+<section id="eda">
+    <div class="panel charts-row">
+        <div class="chart-container">
+            <h3>Train/Test Errors</h3>
+                <canvas id="traintesterrors"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h3>Random Forest Feature Importance</h3>
+                <canvas id="featureimportance"></canvas>
+        </div>
+    </div>
+</section>
+
+<!-- ANALYSIS -->
+<h2> Analysis </h2>
+<section id="analysis">
+    <div class="panel">
+        <h3>Model Performance</h3>
+            <table>
+                <tr>
+                    <th>Model</th>
+                    <th>Train Accuracy</th>
+                    <th>Validation Accuracy</th>
+                </tr>
+
+                <tr>
+                    <td>Logistic Regression</td>
+                    <td>0.6084</td>
+                    <td>0.6069</td>
+                </tr>
+
+                <tr>
+                    <td>Random Forest Set A</td>
+                    <td>0.6098</td>
+                    <td>0.6083</td>
+                </tr>
+
+                <tr>
+                    <td>Random Forest Set B</td>
+                    <td>0.6085</td>
+                    <td>0.6070</td>
+                </tr>
+
+                <tr>
+                    <td>Random Forest Set C</td>
+                    <td>0.6119</td>
+                    <td>0.6103</td>
+                </tr>
+            </table>
+    </div>
+</section>
+
+
+<!-- CONCLUSION -->
+<h2> Conclusion </h2>
+<section id="conclusion">
+    <div class="panel">
+        <h3>Conclusion</h3>
+            <p>
+                Random Forest models achieved the best performance, with the highest validation accuracy of
+                <strong>0.6103</strong>. Feature importance analysis revealed that review length,
+                word count, and helpfulness ratio were the strongest predictors of star ratings.
+            </p>
+    </div>
+</section>
+
 </div>
-</div>
-
-<!-- MODEL RESULTS -->
-
-<div class="panel">
-    <h3>Model Performance</h3>
-        <table>
-            <tr>
-                <th>Model</th>
-                <th>Train Accuracy</th>
-                <th>Validation Accuracy</th>
-            </tr>
-
-            <tr>
-                <td>Logistic Regression</td>
-                <td>0.6084</td>
-                <td>0.6069</td>
-            </tr>
-
-            <tr>
-                <td>Random Forest Set A</td>
-                <td>0.6098</td>
-                <td>0.6083</td>
-            </tr>
-
-            <tr>
-                <td>Random Forest Set B</td>
-                <td>0.6085</td>
-                <td>0.6070</td>
-            </tr>
-
-            <tr>
-                <td>Random Forest Set C</td>
-                <td>0.6119</td>
-                <td>0.6103</td>
-            </tr>
-        </table>
-</div>
-
-</div>
-
 </div>
 
 <script src="script.js"></script>
