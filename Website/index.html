@@ -78,15 +78,6 @@
             <p>Data</p>
         </div>
     
-        <div class="stat">
-            <h2>0.61</h2>
-            <p>Best Accuracy</p>
-        </div>
-    
-        <div class="stat">
-            <h2>PySpark</h2>
-            <p>Distributed ML</p>
-        </div>
     </div>
 </section>
     
@@ -126,14 +117,8 @@
         </div>
 
         <div class="card">
-            <h2>
-                <a href="https://github.com/BGUO2025/DSC-232R-Final-Project" 
-                    target="_blank">
-                    Github
-                </a>
-            </h2>
-
-            <p>Source</p>
+            <h2>PySpark</h2>
+            <p>Data Processing & Modeling</p>
         </div>
 
         <div class="card">
@@ -179,8 +164,11 @@
 </section>
 
 <!-- PREPROCESSING -->
- <h2> Data Preprocessing </h2>
+
 <section id="preprocessing">
+
+    <h2> Data Preprocessing </h2>
+    
     <div class="panel">
         <h3>Feature Engineering</h3>
 
@@ -238,8 +226,10 @@
 </section>
 
 <!-- EDA -->
-<h2> Exploratory Data Analysis </h2>
+
 <section id="eda">
+    <h2> Exploratory Data Analysis </h2>
+
     <div class="panel charts-row">
         <div class="chart-container">
             <h3>Train/Test Errors</h3>
@@ -254,48 +244,55 @@
 </section>
 
 <!-- ANALYSIS -->
-<h2> Analysis </h2>
+
 <section id="analysis">
-    <div class="panel">
-        <h3>Model Performance</h3>
-            <table>
-                <tr>
-                    <th>Model</th>
-                    <th>Train Accuracy</th>
-                    <th>Validation Accuracy</th>
-                </tr>
+ <h2>Analysis</h2>
 
-                <tr>
-                    <td>Logistic Regression</td>
-                    <td>0.6084</td>
-                    <td>0.6069</td>
-                </tr>
-
-                <tr>
-                    <td>Random Forest Set A</td>
-                    <td>0.6098</td>
-                    <td>0.6083</td>
-                </tr>
-
-                <tr>
-                    <td>Random Forest Set B</td>
-                    <td>0.6085</td>
-                    <td>0.6070</td>
-                </tr>
-
-                <tr>
-                    <td>Random Forest Set C</td>
-                    <td>0.6119</td>
-                    <td>0.6103</td>
-                </tr>
-            </table>
+  <!-- Panel 1 -->
+  <div class="analysis-card">
+    <div class="card-img-wrapper">
+      <img src="../images/Model-Performance.png" alt="Model Fit Screenshot" />
     </div>
+    <div class="card-text-wrapper">
+      <h3>Model Fit & Performance</h3>
+      <p>
+        Logistic Regression achieved 60.84% training accuracy and 60.69% validation accuracy. Random Forest improved slightly with 60.98% train and 60.83% validation accuracy, showing minimal underfitting. Feature interactions are better captured with tree-based models.
+      </p>
+    </div>
+  </div>
+
+  <!-- Panel 2 -->
+  <div class="analysis-card">
+    <div class="card-img-wrapper">
+      <img src="https://miro.medium.com/1*U3WRRwLx3zeDkHmIVGLJdw.gif" alt="Hyperparameter Tuning" />
+    </div>
+    <div class="card-text-wrapper">
+      <h3>Random Forest Experiments</h3>
+      <p>
+        We experimented with different hyperparameters: more trees, deeper max depth, and varying feature sampling strategies. The tuned model slightly improved validation accuracy, balancing bias and variance.
+      </p>
+    </div>
+  </div>
+
+  <!-- Panel 3 -->
+  <div class="analysis-card">
+    <div class="card-img-wrapper">
+      <img src="https://via.placeholder.com/400x250" alt="Next Models" />
+    </div>
+    <div class="card-text-wrapper">
+      <h3>Next Steps: Gradient Boosted Trees</h3>
+      <p>
+        Gradient Boosted Trees (GBT) will capture non-linear feature interactions more effectively. Comparing RF and GBT helps understand bias vs variance trade-offs. GBT requires careful tuning and is computationally intensive.
+      </p>
+    </div>
+  </div>
 </section>
 
 
 <!-- CONCLUSION -->
-<h2> Conclusion </h2>
 <section id="conclusion">
+    <h2> Conclusion </h2>
+
     <div class="panel">
         <h3>Conclusion</h3>
             <p>
