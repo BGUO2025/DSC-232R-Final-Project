@@ -1,40 +1,112 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+/* ------------------- GLOBAL ------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Helvetica, sans-serif;
 }
 
-body {
-    overflow-x: hidden;            /* prevent horizontal scroll */
-    scroll-behavior: smooth;       /* smooth scrolling */
-    scroll-snap-type: y mandatory; /* optional: snaps sections like full-page slides */
-    background:#000000;
+html, body {
+    scroll-behavior: smooth;
+    min-width: 600px;        /* prevent shrinking too much */
+    height: 100%;
+    overflow-x: hidden;      /* prevent horizontal overflow */
+    background: #000;
+        margin: 0;
+    padding: 0;
 }
 
 .container {
+    margin: 0 auto;      /* centers everything */
+}
+
+.main{
+    padding:10px 80px;
+}
+
+.main section {
+    height: 100vh;         /* full viewport height */
+    padding: 20px 40px;    /* inner spacing */
+    box-sizing: border-box;
+    scroll-snap-align: start;  /* aligns for snap scrolling */
+}
+
+.main section h2 {
+    scroll-margin-top: 120px; /* height of your sidebar/logo + some padding */
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:30px;
+}
+
+/* ------------------- SECTIONS ------------------- */
+section {
+    min-height: 100vh;           /* full page */
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;    /* useful if using scroll snap */
+    box-sizing: border-box;
+    overflow: hidden;            /* prevent section overflow */
 }
 
 section h2 {
-    color: #db9661; 
-    margin-top: 0;           /* remove extra top margin */
-    margin-bottom: 20px;     /* space below the title */
-    text-align: left;        /* align to the left */
-    padding-left: 10px;      /* optional padding from the left edge */
-    font-size: 2rem;         /* adjust size as needed */
-        font-weight: 700;
+    color: #db9661;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    padding-left: 10px;
 }
 
-/* SIDEBAR */
+html{
+    scroll-behavior:smooth;
+}
+
+/* PANELS */
+.panel{
+    background:rgb(255, 253, 253);
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.charts-row {
+    display: flex;
+    flex-wrap: wrap;            /* wrap panels if needed */
+    justify-content: center;     /* center horizontally */
+    gap: 20px;                   /* spacing between panels */
+    max-width: 1100px;           /* row won’t stretch too wide */
+    margin: 0 auto;              /* center row in page */
+}
+
+.chart-container {
+    flex: 1 1 400px;        /* minimum width 400px, can grow/shrink */
+    max-width: 500px;       /* max width to prevent stretching */
+    max-height: 400px;      /* max height for chart area */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+}
+
+/* ------------------- SIDEBAR ------------------- */
 .sidebar {
-    position: sticky;       
-    top: 0;                 
+    position: fixed;
+    top: 0;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     z-index: 1000;
     padding: 10px 40px;
     box-sizing: border-box;
@@ -44,39 +116,33 @@ section h2 {
     font-weight: 700;
     color: #40568e;
     flex-shrink: 0;
-    font-size: clamp(18px, 2vw, 28px); 
+    font-size: clamp(18px, 2vw, 28px);
 }
 
-.sidebar-menu{
-    display:flex;
-    gap:20px;
-    padding:10px 20px;
-    border-radius:40px;
-    margin: 0 auto;          
+.sidebar-menu {
+    display: flex;
+    gap: 20px;
+    padding: 10px 10px;
+    border-radius: 40px;
+    margin: 0 auto;
     flex-wrap: nowrap;
-    overflow-x:auto;
+    overflow-x: auto;
 }
 
 .menu-item {
     padding: 8px 18px;
-    border-radius: 20px;      
-    background: white;         
+    border-radius: 20px;
+    background: white;
     color: #9aa0b0;
     text-decoration: none;
     font-weight: 500;
-    transition: 0.2s;
     flex-direction: column;
     gap: 8px;
-}
-.menu-item i{
-    font-size:16px;
-    margin:0;
-    gap: 3px;
+    transition: 0.2s;
 }
 
-.menu-item p{
-font-size:11px;
-letter-spacing:2px;
+.menu-item i {
+    font-size: 16px;
 }
 
 .menu-item:hover {
@@ -84,37 +150,12 @@ letter-spacing:2px;
     color: white;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
-section {
-    min-height: 100vh;       /* full screen height */
-    width: 100%;
-    overflow: hidden;        /* prevent content overflow outside section */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* center content vertically */
-    padding: 40px 80px;      /* optional padding inside each section */
-    scroll-snap-align: start; /* for smooth snapping if using scroll snap */
-}
-
-/* MAIN */
-.main{
-    padding:40px 80px;
-}
-
-header{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:30px;
-}
 
 /* HERO SECTION */
+
 .hero{
     position:relative;
     height:100vh;
-    border-radius:12px;
     overflow:hidden;
     margin-bottom:30px;
     background-image:url("https://assets.aboutamazon.com/0c/4d/f53aae614cb4b38609b59a6f8df7/hero-001-amazon-rivian-sustainability-amazon-rivian-acam-19372-final-copy.JPG");
@@ -125,14 +166,14 @@ header{
     align-items:center;
     justify-content:center;
     text-align:center;
-    margin-left:-80px;
-    margin-right:-80px;
-    border-radius:2;
-    width: 100vw;   /* full viewport width */
+    margin-top: 0;  
+    padding: 0;                /* remove section padding */
+    margin: 0;                 /* remove any default margin */
+    width: 100%;               /* use 100% instead of 100vw to avoid scrollbar shift */
+    max-width: 100%;           /* ensure it doesn't get limited by parent */
 
 }
 
-/* dark overlay */
 .hero-overlay{
 position:absolute;
 top:0;
@@ -142,7 +183,6 @@ height:100vh;
 background:rgba(0, 0, 0, 0.515);
 }
 
-/* hero text */
 .hero-content{
 position:relative;
 color:white;
@@ -162,7 +202,26 @@ line-height:1.6;
 margin-bottom:25px;
 }
 
-/* buttons */
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.section-title {
+    font-size: clamp(28px, 4vw, 35px);
+    font-weight: 700;
+    color: #f2f2f2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.section-subtext {
+    font-size: 16px;
+    color: #c5c9d0;
+    line-height: 1.7;
+}
+
 .hero-buttons{
 display:flex;
 gap:15px;
@@ -197,22 +256,22 @@ background:#f2f2f2;
 
 .quick-stats {
     display: flex;
-    justify-content: center;  /* center the group horizontally */
-    gap: 40px;                /* space between each stat card */
-    margin-top: 30px;         /* optional: space from hero text */
-    flex-wrap: wrap;          /* makes it responsive on smaller screens */
+    justify-content: center;  
+    gap: 40px;                
+    margin-top: 30px;         
+    flex-wrap: wrap;          
 }
 
 .quick-stats .stat {
-    text-align: center;       /* center text inside each stat card */
-    padding: 15px 20px;       /* optional: padding inside each stat card */
-    background: rgba(255, 255, 255, 0.1); /* subtle background if desired */
-    border-radius: 12px;      /* rounded corners for pill look */
+    text-align: center;       
+    padding: 15px 20px;       
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 12px;      
 }
 
 .quick-stats .stat h2 {
     margin: 0;
-    font-size: 2rem;          /* adjust size as needed */
+    font-size: 2rem;          
 }
 
 .quick-stats .stat p {
@@ -232,32 +291,6 @@ background:#f2f2f2;
 /* OVERVIEW*/
 #overview {
     min-height: 100vh;         
-}
-.section-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px auto;
-}
-
-.section-label {
-    display: block;
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #bfc2c8; /* soft gray */
-    margin-bottom: 10px;
-}
-
-.section-title {
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 700;
-    color: #7790b2;
-    margin-bottom: 15px;
-}
-
-.section-subtext {
-    font-size: 16px;
-    color: #c5c9d0;
-    line-height: 1.7;
 }
 
 .cards{
@@ -292,8 +325,6 @@ background:#f2f2f2;
     text-decoration: none;
 }
 
-/* STAR RATING DISTRIBUTION */
-
 .two-column-wrapper {
   display: flex;
   gap: 30px;           /* space between chart and text */
@@ -310,7 +341,11 @@ background:#f2f2f2;
   flex: 1 1 45%;
   font-size: 16px;
   line-height: 1.6;
-  color: #c5c9d0;    
+  color: #c5c9d0;   
+}
+
+.text-wrapper p { 
+    text-align: center;
 }
 
 .chart-wrapper canvas {
@@ -320,139 +355,135 @@ background:#f2f2f2;
 
 .text-wrapper .text-title {
     text-align: center;   /* centers the heading horizontally */
-    margin-bottom: 20px;  /* space below heading */
+    margin-bottom: 10px;  /* space below heading */
     margin-left: 20px;      /* move it 20px to the right */
     font-size: 28px;      /* optional: adjust size */
     font-weight: 700;     /* bold */
     color: #ffffff;       /* white text, matches your site */
 }
 
-/* FEATURE ENGINEERING CARDS */
-.feature-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    padding: 20px 0;
-}
-
-.feature-card {
-    perspective: 1000px;
-}
-
-.feature-card-inner {
-    position: relative;
-    width: 100%;
-    height: 120px;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-}
-
-.feature-card:hover .feature-card-inner {
-    transform: rotateY(180deg);
-}
-
-.feature-front,
-.feature-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
+/* Data Preprocessing */
+.preprocessing-wrapper {
     display: flex;
+    gap: 60px;              /* more spacing like example */
     align-items: center;
-    justify-content: center;
-    color: white;
 }
 
-.feature-front {
-    background: #3d3d3d;
-    font-weight: bold;
+.left-column {
+    flex: 0 0 55%;          /* slightly dominant */
 }
 
-.feature-back {
-    background: #eaa861;
-    transform: rotateY(180deg);
-    font-size: 14px;
-    padding: 10px;
-}
-
-
-/* PANELS */
-.panel{
-    background:rgb(255, 253, 253);
-    padding:25px;
-    border-radius:10px;
-    margin-bottom:30px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-.charts-row {
+.right-column {
+    flex: 0 0 55%;              /* keeps column width */
     display: flex;
-    gap: 20px;           /* space between charts */
-    flex-wrap: wrap;      /* responsive for smaller screens */
+    justify-content: center;     /* centers horizontally */
+    align-items: center;         /* centers vertically */
 }
 
-.chart-container {
-    flex: 1;              /* each chart takes equal width */
-    min-width: 300px;     /* ensures charts don’t shrink too much */
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    color: rgb(0, 0, 0);
+.lottie-animation {
+    min-width: 100px;
+    width: 100%;                /* fill the column */
+    max-width: 700px;           /* increase the max size */
+    height: auto;               /* keep aspect ratio */
 }
 
-
-/* Testing */
-
-.analysis-card:first-child {
-    margin-top: 30px; /* add space from header */
-}
-
-.analysis-card {
+/* EDA */
+.eda-two-column-wrapper {
   display: flex;
-  gap: 20px;
-  margin-bottom: 40px;
-  background: linear-gradient(135deg, #cad4de, #275d92);
-  padding: 30px;             /* more padding for taller card */
-  border-radius: 12px;
-  align-items: stretch;       /* stretch image & text to same height */
-  flex-wrap: wrap;
-  min-height: 450px;          /* ensures each card is at least this tall */
+  gap: 40px;                  /* reduced space between columns */
+  align-items: flex-start;     /* align top of charts and text */
+  flex-wrap: wrap;             /* responsive for small screens */
 }
 
-.card-img-wrapper {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    height: 100%;
-    min-height: 350px;      /* ensures image takes some vertical space */
-    object-fit: cover;
+.eda-chart-wrapper {
+  flex: 0 0 55%;              /* smaller left column width */
+  max-width: 400px;           /* limit max width */
+  display: flex;
+  flex-direction: column;      /* stack charts vertically */
+  gap: 20px;                  /* smaller gap between charts */
 }
 
-.card-img-wrapper img {
-    width: 100%;       /* makes image scale to wrapper */
-    height: 100%;      /* maintain aspect ratio */
-    border-radius: 8px; /* optional: rounded corners */
+.eda-panel h2,
+.eda-section-title {
+  color: #111111;    /* very dark gray / almost black */
+  font-weight: 600;  /* optional: make it bold */
+  font-size: 1.2rem; /* optional: slightly bigger */
+}
+
+.eda-panel {
+  padding: 12px;
+  background-color: #ebebee;   /* panel background */
+  border-radius: 8px;
+  margin: 0 auto;              /* center panel in wrapper */
+  min-width: 450px;
+}
+
+.eda-chart-wrapper canvas {
+  width: 100% !important;
+  height: 180px !important;    /* smaller than previous 220px */
+}
+
+.eda-text-wrapper {
+  flex: 0 0 45%;              /* match left column width or slightly smaller */
+  max-width: 350px;
+  color: #6c7585;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.eda-text-title {
+  color: #6c6b6b;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.eda-text-wrapper p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+/* MACHINE LEARNING */
+.ml-panel {
+    margin-bottom: 30px;          /* spacing between panels */
+    padding: 15px;
+    background-color: #1e1e2f;    /* panel background */
+    border-radius: 8px;
+}
+
+.ml-panel-content {
+    display: flex;
+    gap: 20px;                    /* space between text and image */
+    align-items: flex-start;
+    flex-wrap: wrap;               /* responsive for smaller screens */
+}
+
+.ml-panel-text {
+    flex: 1 1 60%;                /* text takes ~60% */
+    color: #c5c9d0;
+}
+
+.ml-panel-text h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.ml-panel-text p, .ml-panel-text ul {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.ml-panel-image {
+    flex: 1 1 35%;                /* image takes ~35% */
+    text-align: center;
+}
+
+.ml-panel-image img {
+    max-width: 100%;
+    min-height: 200px;  /* minimum height */
+    width: auto;         /* keeps aspect ratio */
+    border-radius: 6px;
     display: block;
-}
-
-.card-text-wrapper {
-  flex: 1 1 55%;          /* text takes 55% */
-  color: #f0f0f0;
-}
-
-.card-text-wrapper h3 {
-  color: #252525;
-  margin-bottom: 30px;
-}
-
-.card-text-wrapper p {
-  line-height: 1.6;
 }
