@@ -1237,6 +1237,8 @@ This result shows that the PCA-reduced representation removed too much of the in
 
 Overall, these results show that hyperparameter tuning provided only small gains for the Random Forest model, while PCA-based feature reduction significantly harmed classification performance in this setting.
 
+
+
 - [Discussion](#discussion)
 <a id="discussion"></a>
 
