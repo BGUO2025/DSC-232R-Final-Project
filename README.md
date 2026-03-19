@@ -1236,8 +1236,13 @@ Using PCA-transformed features shows a complete collapse in predictive performan
 This result shows that the PCA-reduced representation removed too much of the information needed for the classifier to distinguish between rating classes. Instead of preserving meaningful class structure, the transformed feature space caused the model to default entirely to the majority class. Compared with the standard-feature model, the PCA-based version performed substantially worse and failed to provide useful class separation.
 
 Overall, these results show that hyperparameter tuning provided only small gains for the Random Forest model, while PCA-based feature reduction significantly harmed classification performance in this setting.
+<p align='center'>
+<img src="https://github.com/BGUO2025/DSC-232R-Final-Project/blob/0fdf2e3a3460443a791e78227014a935cd932ccf/images/newplot.png"/>
+</p>
 
-
+<p align='center'>
+<img src="[https://github.com/BGUO2025/DSC-232R-Final-Project/blob/0fdf2e3a3460443a791e78227014a935cd932ccf/images/newplot.png](https://github.com/BGUO2025/DSC-232R-Final-Project/blob/0fdf2e3a3460443a791e78227014a935cd932ccf/images/newplot2.png)"/>
+</p>
 
 - [Discussion](#discussion)
 <a id="discussion"></a>
