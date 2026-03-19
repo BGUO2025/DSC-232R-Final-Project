@@ -8,31 +8,31 @@
 
 html, body {
     scroll-behavior: smooth;
-    min-width: 600px;        /* prevent shrinking too much */
+    min-width: 600px;        
     height: 100%;
-    overflow-x: hidden;      /* prevent horizontal overflow */
+    overflow-x: hidden;      
     background: #000;
         margin: 0;
     padding: 0;
 }
 
 .container {
-    margin: 0 auto;      /* centers everything */
+    margin: 0 auto;      
 }
 
 .main {
-    padding: 120px 80px 10px 80px;  /* top padding = sidebar height + spacing */
+    padding: 120px 80px 10px 80px;  
 }
 
 .main section {
     min-height: 100vh;
     padding: 20px 40px;
     box-sizing: border-box;
-    overflow: visible; /* avoid clipping content under sidebar */
+    overflow: visible; 
 }
 
 .main section h2 {
-    scroll-margin-top: 100px; /* height of your sidebar/logo + some padding */
+    scroll-margin-top: 100px; 
 }
 
 header{
@@ -43,14 +43,14 @@ header{
 
 /* ------------------- SECTIONS ------------------- */
 section {
-    min-height: 90vh;           /* full page */
+    min-height: 90vh;           
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    scroll-snap-align: start;    /* useful if using scroll snap */
+    scroll-snap-align: start;    
     box-sizing: border-box;
-    overflow: hidden;            /* prevent section overflow */
+    overflow: hidden;            
 }
 
 section h2 {
@@ -83,17 +83,17 @@ html{
 
 .charts-row {
     display: flex;
-    flex-wrap: wrap;            /* wrap panels if needed */
-    justify-content: center;     /* center horizontally */
-    gap: 20px;                   /* spacing between panels */
-    max-width: 1100px;           /* row won’t stretch too wide */
-    margin: 0 auto;              /* center row in page */
+    flex-wrap: wrap;            
+    justify-content: center;    
+    gap: 20px;                   
+    max-width: 1100px;           
+    margin: 0 auto;              
 }
 
 .chart-container {
-    flex: 1 1 400px;        /* minimum width 400px, can grow/shrink */
-    max-width: 500px;       /* max width to prevent stretching */
-    max-height: 400px;      /* max height for chart area */
+    flex: 1 1 400px;       
+    max-width: 500px;       
+    max-height: 400px;      
     padding: 15px;
     background-color: #f9f9f9;
     border-radius: 12px;
@@ -167,10 +167,10 @@ html{
     justify-content:center;
     text-align:center;
     margin-top: 0;  
-    padding: 0;                /* remove section padding */
-    margin: 0;                 /* remove any default margin */
-    width: 100%;               /* use 100% instead of 100vw to avoid scrollbar shift */
-    max-width: 100%;           /* ensure it doesn't get limited by parent */
+    padding: 0;              
+    margin: 0;               
+    width: 100%;              
+    max-width: 100%;           
 
 }
 
@@ -327,14 +327,14 @@ background:#f2f2f2;
 
 .two-column-wrapper {
   display: flex;
-  gap: 30px;           /* space between chart and text */
+  gap: 30px;           
   align-items: flex-start;
-  flex-wrap: wrap;     /* wraps on smaller screens */
+  flex-wrap: wrap;     
   margin-bottom: 20px;
 }
 
 .chart-wrapper {
-  flex: 1 1 48%;       /* 45% width, grows/shrinks */
+  flex: 1 1 48%;       
 }
 
 .text-wrapper {
@@ -354,18 +354,18 @@ background:#f2f2f2;
 }
 
 .text-wrapper .text-title {
-    text-align: center;   /* centers the heading horizontally */
-    margin-bottom: 10px;  /* space below heading */
-    margin-left: 20px;      /* move it 20px to the right */
-    font-size: 28px;      /* optional: adjust size */
-    font-weight: 700;     /* bold */
-    color: #ffffff;       /* white text, matches your site */
+    text-align: center;   
+    margin-bottom: 10px;  
+    margin-left: 20px;      
+    font-size: 28px;      
+    font-weight: 700;     
+    color: #ffffff;       
 }
 
 .section-title2 {
-    font-size: clamp(24px, 3vw, 30px); /* slightly smaller if needed */
+    font-size: clamp(24px, 3vw, 30px); 
     font-weight: 700;
-    color: #5b5b5b;                     /* pure white for contrast */
+    color: #5b5b5b;                  
     text-align: center;
     margin-bottom: 15px;
 }
@@ -373,66 +373,66 @@ background:#f2f2f2;
 /* Data Preprocessing */
 .preprocessing-wrapper {
     display: flex;
-    gap: 60px;              /* more spacing like example */
+    gap: 60px;              
     align-items: center;
 }
 
 .left-column {
-    flex: 0 0 55%;          /* slightly dominant */
+    flex: 0 0 55%;         
 }
 
 .right-column {
-    flex: 0 0 55%;              /* keeps column width */
+    flex: 0 0 55%;              
     display: flex;
-    justify-content: center;     /* centers horizontally */
-    align-items: center;         /* centers vertically */
+    justify-content: center;     
+    align-items: center;         
 }
 
 .lottie-animation {
     min-width: 100px;
-    width: 100%;                /* fill the column */
-    max-width: 700px;           /* increase the max size */
-    height: auto;               /* keep aspect ratio */
+    width: 100%;               
+    max-width: 700px;           
+    height: auto;              
 }
 
 /* EDA */
 .eda-two-column-wrapper {
   display: flex;
-  gap: 40px;                  /* reduced space between columns */
-  align-items: flex-start;     /* align top of charts and text */
-  flex-wrap: wrap;             /* responsive for small screens */
+  gap: 40px;                  
+  align-items: flex-start;     
+  flex-wrap: wrap;             
 }
 
 .eda-chart-wrapper {
-  flex: 0 0 55%;              /* smaller left column width */
-  max-width: 400px;           /* limit max width */
+  flex: 0 0 55%;             
+  max-width: 400px;          
   display: flex;
-  flex-direction: column;      /* stack charts vertically */
-  gap: 20px;                  /* smaller gap between charts */
+  flex-direction: column;  
+  gap: 20px;                  
 }
 
 .eda-panel h2,
 .eda-section-title {
-  color: #111111;    /* very dark gray / almost black */
-  font-weight: 600;  /* optional: make it bold */
-  font-size: 1.2rem; /* optional: slightly bigger */
+  color: #111111;    
+  font-weight: 600;  
+  font-size: 1.2rem;
 }
 
 .eda-panel {
   padding: 12px;
-  background-color: #ebebee;   /* panel background */
+  background-color: #ebebee;   
   border-radius: 8px;
-  margin: 0 auto;              /* center panel in wrapper */
+  margin: 0 auto;              
   min-width: 450px;
 }
 
 .eda-chart-wrapper canvas {
   width: 100% !important;
-  height: 180px !important;    /* smaller than previous 220px */
+  height: 180px !important;    
 }
 
 .eda-text-wrapper {
-  flex: 0 0 45%;              /* match left column width or slightly smaller */
+  flex: 0 0 45%;              
   max-width: 350px;
   color: #6c7585;
   text-align: left;
@@ -455,26 +455,24 @@ background:#f2f2f2;
 
 /* MACHINE LEARNING */
 .ml-panel {
-    margin-bottom: 10px;          /* spacing between panels */
+    margin-bottom: 8px;          
     padding: 15px;
-    background-color: #374764;    /* panel background */
+    background-color: #374764;    
     border-radius: 8px;
 }
 
 .ml-panel-content {
     display: flex;
-    gap: 10px;                    /* space between text and image */
+    gap: 7px;                    
     align-items: flex-start;
-    flex-wrap: wrap;               /* responsive for smaller screens */
+    flex-wrap: wrap;              
 }
 
 .ml-panel-text {
-    flex: 1 1 60%;                /* text takes ~60% */
+    flex: 1 1 50%;                
     color: #c5c9d0;
-}
-.ml-panel-text {
-    font-size: 14px;   /* smaller text */
-    line-height: 1.4;  /* adjust spacing to match smaller text */
+    font-size: 14px;   
+    line-height: 1; 
 }
 
 .ml-panel-text h3 {
@@ -488,14 +486,14 @@ background:#f2f2f2;
 }
 
 .ml-panel-image {
-    flex: 1 1 35%;                /* image takes ~35% */
+    flex: 1 1 40%;                
     text-align: center;
 }
 
 .ml-panel-image img {
     max-width: 100%;
-    min-height: 200px;  /* minimum height */
-    width: auto;         /* keeps aspect ratio */
+    min-height: 200px;  
+    width: auto;        
     border-radius: 6px;
     display: block;
 }
