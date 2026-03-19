@@ -2427,6 +2427,148 @@ To better understand which features contribute most to predicting review ratings
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Results&fontSize=30&fontColor=ffffff"/>
 </p>
 
+## Results Section
+
+### Data Exploration Results
+
+The full Amazon review dataset contained **102,899,354 rows**, with an estimated size of **117.94 GB** in memory. Within the most common product categories, **Sports** contained **4,849,563 reviews** and was used for several additional exploratory visualizations.
+
+The exploratory plots showed that review volume differed substantially across categories. The largest product categories included **Wireless (9,001,881 reviews)**, **PC (6,908,551 reviews)**, **Apparel (5,906,322 reviews)**, **Health & Personal Care (5,331,215 reviews)**, and **Beauty (5,115,452 reviews)**. The star rating distribution was heavily concentrated in higher ratings, and helpful votes were strongly right-skewed. Additional plots of average rating versus number of reviews were generated in both linear and log-scaled form.
+
+### Preprocessing Results
+
+After preprocessing, the final modeling data was split into training, validation, and test sets. The updated pipeline produced transformed datasets containing the final feature vector used for modeling. The preprocessing stage after the split took **222.31 seconds**.
+
+### Model 1 Results: Logistic Regression
+
+Logistic Regression was used as the baseline supervised model. The model achieved:
+
+- **Training accuracy:** 0.7265  
+- **Validation accuracy:** 0.7217  
+- **Training F1:** 0.6935  
+- **Validation F1:** 0.6885  
+
+The Logistic Regression run took **8.83 seconds**.
+
+### Model 2 Results: Linear SVC
+
+A Linear Support Vector Classifier was trained using a one-versus-rest strategy. The model achieved:
+
+- **Training accuracy:** 0.6971  
+- **Validation accuracy:** 0.6953  
+- **Training F1:** 0.6287  
+- **Validation F1:** 0.6265  
+
+The Linear SVC run took **38.74 seconds**.
+
+### Model 3 Results: Random Forest
+
+The baseline Random Forest model was trained on the original feature space. The model achieved:
+
+- **Training accuracy:** 0.6677  
+- **Validation accuracy:** 0.6678  
+- **Training F1:** 0.5660  
+- **Validation F1:** 0.5661  
+
+The Random Forest run took **9.79 seconds**.
+
+Additional Random Forest configurations were also evaluated.
+
+**Set B**
+- **Training accuracy:** 0.6600  
+- **Validation accuracy:** 0.6607  
+- **Training F1:** 0.5547  
+- **Validation F1:** 0.5558  
+
+**Set C**
+- **Training accuracy:** 0.6717  
+- **Validation accuracy:** 0.6710  
+- **Training F1:** 0.5727  
+- **Validation F1:** 0.5717  
+
+### Model 4 Results: XGBoost
+
+The XGBoost classifier was also evaluated on the processed feature set. The model achieved:
+
+- **Training accuracy:** 0.6818  
+- **Validation accuracy:** 0.6783  
+- **Training F1:** 0.5991  
+- **Validation F1:** 0.5941  
+
+The XGBoost run took **35.48 seconds**.
+
+### PCA Results
+
+Principal Component Analysis was applied to the finalized feature vector. The explained variance results showed that the first principal component accounted for nearly all of the total variance.
+
+| Principal Component | Explained Variance | Cumulative Explained Variance |
+|---|---:|---:|
+| PC1 | 0.99870582 | 0.99870582 |
+| PC2 | 0.00093351 | 0.99963933 |
+| PC3 | 0.00020984 | 0.99984917 |
+| PC4 | 0.00014697 | 0.99999613 |
+| PC5 | 0.00000215 | 0.99999828 |
+| PC6 | 0.00000067 | 0.99999895 |
+| PC7 | 0.00000046 | 0.99999941 |
+| PC8 | 0.00000036 | 0.99999976 |
+| PC9 | 0.00000024 | 1.00000000 |
+
+The full PCA step took **7.00 seconds**. A second PCA run using only **1 principal component** took **0.68 seconds**, with that single component explaining **0.99870582** of the variance.
+
+### Random Forest with PCA Results
+
+A Random Forest model was also trained on PCA-reduced features using **1 principal component**. This model achieved:
+
+- **Training accuracy:** 0.6083  
+- **Validation accuracy:** 0.6090  
+- **Training F1:** 0.4601  
+- **Validation F1:** 0.4610  
+
+The Random Forest with PCA run took **6.57 seconds**.
+
+### K-Means Clustering Results
+
+K-means clustering was evaluated on the PCA-transformed features for multiple values of `k`. The silhouette scores were:
+
+| k | Training Silhouette | Validation Silhouette |
+|---|---:|---:|
+| 2 | 0.953758 | 0.953758 |
+| 3 | 0.894368 | 0.894368 |
+| 4 | 0.880960 | 0.880960 |
+| 5 | 0.851462 | 0.851462 |
+| 6 | 0.823923 | 0.823923 |
+
+The best result was obtained with **k = 2**. The finalized clustering step reported:
+
+- **Training silhouette:** 0.9538  
+- **Validation silhouette:** 0.9538  
+
+The finalized K-means clustering run took **4.26 seconds**.
+
+### Summary of Supervised Model Results
+
+| Model | Training Accuracy | Validation Accuracy | Training F1 | Validation F1 |
+|---|---:|---:|---:|---:|
+| Logistic Regression | 0.7265 | 0.7217 | 0.6935 | 0.6885 |
+| Linear SVC | 0.6971 | 0.6953 | 0.6287 | 0.6265 |
+| Random Forest | 0.6677 | 0.6678 | 0.5660 | 0.5661 |
+| Random Forest Set B | 0.6600 | 0.6607 | 0.5547 | 0.5558 |
+| Random Forest Set C | 0.6717 | 0.6710 | 0.5727 | 0.5717 |
+| XGBoost | 0.6818 | 0.6783 | 0.5991 | 0.5941 |
+| Random Forest with PCA | 0.6083 | 0.6090 | 0.4601 | 0.4610 |
+
+### Figures Included in Results
+
+The notebook and README include the following result figures:
+
+- model comparison figures
+- training RMSE comparison
+- validation RMSE comparison
+- actual vs. predicted ratings
+- Random Forest feature importance
+- PCA explained variance plot
+- K-means clustering results
+
 - [Discussion](#discussion)
 <a id="discussion"></a>
 
