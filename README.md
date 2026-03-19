@@ -1266,7 +1266,7 @@ Overall, these results show that hyperparameter tuning provided only small gains
 
 We initially experimented with a **Logistic Regression** model as a preliminary test, achieving a 60.84% training accuracy and 60.69% validation accuracy, recognizing that this model is limited in capturing non-linear relationships and present feature interactions in the dataset.
 
-Our primary focus was the **Random Forest** model, which achieved 60.98% training accuracy and 60.83% validation accuracy. The small difference between training and validation performance indicates that underfitting is minimal. However, the overall accuracy remains modest, suggesting the model may be overfitting. Enhancing feature representation or increasing model complexity can improve predictive performance. 
+Our primary focus was the **Random Forest** model, which achieved 60.98% training accuracy and 60.83% validation accuracy. The small difference between training and validation performance indicates that underfitting is minimal. However, the overall accuracy remains modest, suggesting the model may be underfitting. Enhancing feature representation or increasing model complexity can improve predictive performance. 
 
 
 **Building with Different Hyperparameters to Compare**
@@ -1290,7 +1290,11 @@ For the next stage of this project, we are considering **Gradient Boosted Trees 
 
 On one hand, Random Forests reduce variance through parallel and independent tree averaging. It is robust, less sensitive to hyperparameters, and less prone to overfitting. On the other, Gradient Boosted Trees can reduce bias by sequentially corrected errors from previous trees. By training both models and evaluating them using RMSE on the validation and test sets, we can determine whether the additional complexity of boosting provides meaningful improvements over the more stable Random Forest baseline. In turn, it can achieve higher accuracy, though it is more computationally intensive and sensitive to hyperparameters, making careful tuning essential. 
 
+**Dimensionality Reduction Compared to Full Feature Set** 
+To evaluate the impact of dimensionality reduction, we trained the Random Forest model on PCA-transformed features. In comparison to the full feature set, performance significantly degraded. The PCA-based model collapsed to predicting only the majority class (5-star ratings), indicating that important information needed for class separation may have been lost during transformation. In other words, PCA reduced the model's ability to distinguish between rating categories and performed less effectively than using original features.
 
+**Future Improvements**
+Future work can further explore as previously hypothesized where our model can involve methods such as Gradient Boosted Trees to iteratively correct errors from previous trees, reduce bias, and capture more complex patterns. Additionally, further improvements may include enhanced feature eingeering and techniques to address the impact of class imbalance. 
 
 <a id="finalconclusion"></a>
 
@@ -1317,6 +1321,9 @@ Spark partitions the dataset across the cluster so that operations such as filte
 
 Additionally, Spark’s distributed ML libraries (such as MLlib) enable models like Random Forest and Gradient Boosted Trees to train using parallelized tree construction and data sampling.
 For this project, distributed computing allowed us to efficiently perform large-scale preprocessing, feature engineering, and model training while managing memory constraints. Without distributed processing, loading and analyzing the full dataset would likely require significant hardware resources or extensive data reduction before modeling.
+
+**Second Model Conclusion**
+The second model with additional PCA and K-Means Clustering resulted in a consistently declining performance across training and validation sets. However, with hyperparameter tuning produced only minor gains, suggesting that model performance is more constrained by feature representation than by parameter selection. There was a failure to distinguish between rating class and collapsed to predicting only the majority class. Overall, the Random Forest model trained on the original features remained the better-performing approach.
 
 <a id="statement"></a>
 
