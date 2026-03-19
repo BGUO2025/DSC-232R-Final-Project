@@ -1,6 +1,7 @@
 
 <p align="center">
-<img src="https://capsule-render.vercel.app/api?type=rect&color=3B95D9&height=80&section=header&text=Amazon%20Data%20Analysis%20And%20Review%20Score%20Prediction&fontSize=32&fontColor=ffffff"/>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=d49259&&height=90&section=header&text=Amazon%20Data%20Analysis%20And%20Review%20Score%20Prediction&fontSize=35&fontColor=ffffff"/>
 </p>
 
 ## Project Overview 
@@ -18,25 +19,27 @@ We hope to display how large-scale customer review datasets can be transformed i
 * Handle **missing** data and address class **imbalances** 
 * Engineer **informative** features from review text and metadata
 * Prepare scalable feature **pipelines** for machine learning modeling 
-#test2
 
 ## Table of Contents
-- [Github](#github)
-- [SDSC Expanse Setup](#sdsc)
-- [Data Exploration](#data)
-- [Plots](#plots)
-- [Preprocessing](#p2)
-- [Data Preprocessing Part 2](#p3)
-- [Machine Learning](#ml)
-- [Fitting Analysis](#fitting-analysis)
-- [Conclusion](#conclusion)
+(old format, see at the very end for restarted format)
+- [Milestone 2](#milestone2)
+- [Milestone 3](#milestone3)
+- [Milestone 4](#milestone4)
 
-## Milestone 2
+
+<a id="milestone2"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=90&section=header&text=Milestone%202&fontSize=40&fontColor=ffffff"/>
+</p>
+
 <a id="github"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Github&fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Github&fontSize=30&fontColor=ffffff"/>
 </p>
+
+
 
 **GitHub Organization / ID:**  
 BGUO2025
@@ -104,8 +107,9 @@ We then loaded our data with the following schema:
 <a id="sdsc"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=SDSC%20Expanse%20Setup&fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=SDSC%20Expanse%20Setup&fontSize=30&fontColor=ffffff"/>
 </p>
+
 This project uses **PySpark** for distributed computing and **Matplotlib/Seaborn** for visualizations. 
 
 To initialize our spark, we decided to utilize a 4GB exection size as our driving factor from this set based on previous experience working with social media analysis. This provides us with adequate memory headroom for groupBy and aggregation operations without creating excessively large JVM heaps that can otherwise increase garbage collection overhead. 
@@ -218,8 +222,8 @@ df['maxMemory_GB'] = (df['maxMemory'] / (1024**3)).round(2)
 <a id="data"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data%20Exploration&fontSize=30&fontColor=ffffff" />
-</p><
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Data%20Exploration&fontSize=30&fontColor=ffffff" />
+</p>
 
 **Checked aspects** 
 * Data size
@@ -264,8 +268,9 @@ Missing values are extremely rare, showing as below 0.02% across all features. G
 <a id="plots"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Plots&fontSize=30&fontColor=ffffff" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Plots&fontSize=30&fontColor=ffffff" />
 </p>
+
 * Product categories distribution 
 <p align="center">
   <img src="images/Product-Categories.png" width="600" height = "200">
@@ -320,11 +325,10 @@ This provides a simple distribution of product IDs in relation to the previous p
 
 Here we examined both the linear and log relationships of average ratingand number of reviews. This relationship suggests that products with few reviews tend to exhibit higher variability inr atings. However, as the reviews increase in amount, the average rating appears to stabilities, indicating that larger review counts provide more reliable estimates of customer satisfaction. 
 
-
 <a id="p2"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data%20Preprocessing&fontSize=30&fontColor=ffffff" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Data%20Preprocessing&fontSize=30&fontColor=ffffff" />
 </p>
 
 The following sections describe the specific steps to prepare the data for modeling, including missing value handling, feature transformations, and balancing of target classes.
@@ -347,11 +351,16 @@ Several transformations will be applied to improvement dataset usefulness for ma
 
 Data preprocessing will use Apache Spark operations to clean and prepare the dataset. We will filter relevant records, use operations such as select(), filter(), and withColumn() to isolate necessary fields and create new features, and dropna() and fillna() to remove values with missing or duplicate values and assign default values, respectively. Additionally, using lower() and length(), we will convert review text to lowercase and compute each review's length.
 
-## Milestone 3
+<a id="milestone3"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=90&section=header&text=Milestone%203&fontSize=45&fontColor=ffffff"/>
+</p>
+
 <a id="p3"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Data%20Preprocessing%20Part%202&fontSize=30&fontColor=ffffff" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Data%20Preprocessing%20Continued%20&fontSize=30&fontColor=ffffff" />
 </p>
 
 **Feature Selection**
@@ -771,7 +780,7 @@ Preprocessing took: 222.31 seconds
 <a id="ml"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Machine%20Learning&fontSize=30&fontColor=ffffff" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Machine%20Learning&fontSize=30&fontColor=ffffff" />
 </p>
 
 ```
@@ -929,9 +938,9 @@ print(f"ML Hyperparameter Tuning took: {elapsed:.2f} seconds")
 ML Hyperparameter Tuning took: 136.23 seconds
 ```
 
-The hyperparameter tuning results indicate that increasing model complexity, particularly through greater tree depth, can provide small improvements in predictive performance, as seen in **Set C**, which achieved the highest training (61.19%) and validation (61.03%) accuracies. However, experimenting with larger configurations introduced practical **limitations** related to Spark resources. It signficantly raised memory usage, which occasionally resulted in **heap and memory** management issues during experimentation.
+The hyperparameter tuning results indicate that increasing model complexity, particularly through greater tree depth, can provide small improvements in predictive performance, as seen in **Set C**, which achieved the highest training (61.19%) and validation (61.03%) accuracies. However, experimenting with larger configurations introduced practical **limitations** related to Spark resources. It significantly raised memory usage, which occasionally resulted in **heap and memory** management issues during experimentation.
 
-These resuts also suggest that the current feature set may be limiting model performance, indicating that additional feature engineering may be required to capture more predictive signals. Due to memory overhead when training on the full dataset, we consulted with course instructures and decided to continue experimentation on a **1% subsample of the dataset** and plan to scale to **5% or 10%** subsets as resources permit.
+These results also suggest that the current feature set may be limiting model performance, indicating that additional feature engineering may be required to capture more predictive signals. Due to memory overhead when training on the full dataset, we consulted with course instructors and decided to continue experimentation on a **1% subsample of the dataset** and plan to scale to **5% or 10%** subsets as resources permit.
 
 **Visualizations** 
 
@@ -1146,7 +1155,6 @@ RF importance count: 8
 0        verified_purchase_idx    0.000000
 ```
 
-
 <p align="center">
   <img src="images/FeatureImportance.png" width="600">
 </p>
@@ -1156,7 +1164,7 @@ To better understand which features contribute most to predicting review ratings
 <a id="fitting-analysis"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Fitting%20Analysis&fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Fitting%20Analysis&fontSize=30&fontColor=ffffff"/>
 </p>
 
 **Model Fit in Fitting Graph**
@@ -1190,7 +1198,7 @@ On one hand, Random Forests reduce variance through parallel and independent tre
 <a id="conclusion"></a>
 
 <p align='center'>
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Conclusion&fontSize=30&fontColor=ffffff"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Conclusion&fontSize=30&fontColor=ffffff"/>
 </p>
 
 **First Model Conclusion**
@@ -1210,3 +1218,111 @@ Spark partitions the dataset across the cluster so that operations such as filte
 Additionally, Spark’s distributed ML libraries (such as MLlib) enable models like Random Forest and Gradient Boosted Trees to train using parallelized tree construction and data sampling.
 For this project, distributed computing allowed us to efficiently perform large-scale preprocessing, feature engineering, and model training while managing memory constraints. Without distributed processing, loading and analyzing the full dataset would likely require significant hardware resources or extensive data reduction before modeling.
 
+
+<a id="milestone4"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=90&section=header&text=Milestone%204&fontSize=40&fontColor=ffffff"/>
+</p>
+
+* PCA 
+
+* K-Means Clustering
+
+Run into overhead, already changed spec three times, didn't have unlimited resources, we had to stick with model given resources 
+
+Log regression up to 72%
+<a id="finalpreprocessing"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Final%20Data%20Preprocessing&fontSize=30&fontColor=ffffff"/>
+</p>
+
+* Compare training vs test performance 
+
+* Analyze explained variance (For PCA/SVD)
+
+* Evaluate clustering quality, if applicable
+
+<a id="predictions"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Predictions%20Analysis&fontSize=30&fontColor=ffffff"/>
+</p>
+
+* Where does your model fit in the fitting graph? 
+
+* What are potential future improvements or next models? 
+
+* How does dimensionality reduction affect results compared to the full feature set?
+
+<a id="conclusion2"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Conclusion&fontSize=30&fontColor=ffffff"/>
+</p>
+
+* What is the conclusion of your 2nd model? What can be done to improve it?
+
+
+
+
+## Table of Contents
+- [Introduction](#intro)
+<a id="intro"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Introduction&fontSize=30&fontColor=ffffff"/>
+</p>
+
+- [Figures](#figures)
+<a id="figures"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Figures&fontSize=30&fontColor=ffffff"/>
+</p>
+
+- [Methods](#methods)
+<a id="methods"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Methods&fontSize=30&fontColor=ffffff"/>
+</p>
+
+- [Results](#results)
+<a id="results"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Results&fontSize=30&fontColor=ffffff"/>
+</p>
+
+- [Discussion](#discussion)
+<a id="discussion"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Discussion&fontSize=30&fontColor=ffffff"/>
+</p>
+
+- [Conclusion](#finalconclusion)
+<a id="finalconclusion"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Conclusion&fontSize=30&fontColor=ffffff"/>
+</p>
+
+
+- [Statement of Collaboration](#statement)
+<a id="statement"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Statement%20of%20Collaboration&fontSize=30&fontColor=ffffff"/>
+</p>
+
+
+**Jason (Project Manager)** - Managed deadlines, scheduling, and overall team coordination. Contributed to starter code, error handling, quality assurnace, documentation, EDA, Milestone 2 development, and machine learning implementation.
+
+**Laura (Writer and Frontend Developer)** - Contributed to writing and organizing the README, polishing sections for clarity and presentation; Organized the main development of the project website including layout and user interface implementation.
+
+**Baixi(Backend Developer)** - Led the majority of coding for milestones, including handling large-scale data processing, implementing and selecting machine learning models, and conducting data analysis. Responsible for experimenting with hyperparameters, improving model performance, and iterating on model choices to achieve better accuracy.
+
+**Pooja(Project Documentation Organizer)** - Led the organization and restructuring of the project README to appropriately communicate the project's workflow, methodology, and results.
