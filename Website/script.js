@@ -57,6 +57,7 @@ new Chart(document.getElementById("ratingChart"), {
   }
 });
 
+
 // TRAIN AND TEST ERRORS LINE PLOT
 const ctxerrors = document.getElementById("traintesterrors").getContext("2d");
 
