@@ -2429,145 +2429,35 @@ To better understand which features contribute most to predicting review ratings
 
 ## Results Section
 
-### Data Exploration Results
+### Model 1: Random Forest w/ Hyperparameter Tuning
 
-The full Amazon review dataset contained **102,899,354 rows**, with an estimated size of **117.94 GB** in memory. Within the most common product categories, **Sports** contained **4,849,563 reviews** and was used for several additional exploratory visualizations.
+We evaluated three Random Forest hyperparameter settings to compare how tree count and tree depth affected model performance on the training and validation sets.
 
-The exploratory plots showed that review volume differed substantially across categories. The largest product categories included **Wireless (9,001,881 reviews)**, **PC (6,908,551 reviews)**, **Apparel (5,906,322 reviews)**, **Health & Personal Care (5,331,215 reviews)**, and **Beauty (5,115,452 reviews)**. The star rating distribution was heavily concentrated in higher ratings, and helpful votes were strongly right-skewed. Additional plots of average rating versus number of reviews were generated in both linear and log-scaled form.
+- **Set A:** 25 trees, depth 8 → Train: 60.98%, Validation: 60.83%
+- **Set B:** 20 trees, depth 6 → Train: 60.85%, Validation: 60.70%
+- **Set C:** 25 trees, depth 10 → Train: 61.19%, Validation: 61.03%
 
-### Preprocessing Results
+Across all three configurations, performance remained relatively similar, with only small improvements from tuning. The best-performing configuration was **Set C**, which used **25 trees** and a **maximum depth of 10**, producing the highest training and validation accuracy. Increasing tree depth improved performance slightly, but the gains were modest overall. The validation results remained close to the training results across all three sets, suggesting that the tuned models behaved consistently across the two splits.
 
-After preprocessing, the final modeling data was split into training, validation, and test sets. The updated pipeline produced transformed datasets containing the final feature vector used for modeling. The preprocessing stage after the split took **222.31 seconds**.
+The RMSE comparison plots also showed only minor differences between the hyperparameter settings. Both the training and validation RMSE values stayed in a narrow range, reinforcing that tuning improved the model only slightly rather than producing a major performance jump. Even with this improvement, the dataset’s class imbalance still causes bias toward higher ratings.
 
-### Model 1 Results: Logistic Regression
+### Model 2: Random Forest w/ PCA + K-Means Clustering
 
-Logistic Regression was used as the baseline supervised model. The model achieved:
+To further evaluate model behavior, we compared a Random Forest trained on the standard feature set with a Random Forest trained on PCA-transformed features. We also reviewed the confusion matrices to better understand how predictions were distributed across rating classes.
 
-- **Training accuracy:** 0.7265  
-- **Validation accuracy:** 0.7217  
-- **Training F1:** 0.6935  
-- **Validation F1:** 0.6885  
+#### RF with Standard Features
 
-The Logistic Regression run took **8.83 seconds**.
+The left-side confusion matrix shows a strong bias toward predicting **5-star ratings**, with a large concentration of predictions in the final column. While the model correctly classifies many true **5-star reviews**, it frequently misclassifies ratings **1 through 4** as **5**, particularly for classes **3 and 4** where most predictions are pushed upward.
 
-### Model 2 Results: Linear SVC
+This means the model performs best on the dominant class and struggles to separate lower and middle rating categories. The confusion matrix suggests that the Random Forest with standard features captures broad high-rating behavior reasonably well, but it has limited precision across the full rating spectrum. In practical terms, the model tends to overpredict positive outcomes and underrepresent lower-rated reviews.
 
-A Linear Support Vector Classifier was trained using a one-versus-rest strategy. The model achieved:
+#### RF with PCA Features
 
-- **Training accuracy:** 0.6971  
-- **Validation accuracy:** 0.6953  
-- **Training F1:** 0.6287  
-- **Validation F1:** 0.6265  
+Using PCA-transformed features shows a complete collapse in predictive performance, with the model predicting only **5-star ratings** for every instance. In the confusion matrix, all observations, regardless of their true rating, are classified as **5**, resulting in zero correct predictions for classes **1 through 4** and only correct predictions for true **5-star ratings**.
 
-The Linear SVC run took **38.74 seconds**.
+This result shows that the PCA-reduced representation removed too much of the information needed for the classifier to distinguish between rating classes. Instead of preserving meaningful class structure, the transformed feature space caused the model to default entirely to the majority class. Compared with the standard-feature model, the PCA-based version performed substantially worse and failed to provide useful class separation.
 
-### Model 3 Results: Random Forest
-
-The baseline Random Forest model was trained on the original feature space. The model achieved:
-
-- **Training accuracy:** 0.6677  
-- **Validation accuracy:** 0.6678  
-- **Training F1:** 0.5660  
-- **Validation F1:** 0.5661  
-
-The Random Forest run took **9.79 seconds**.
-
-Additional Random Forest configurations were also evaluated.
-
-**Set B**
-- **Training accuracy:** 0.6600  
-- **Validation accuracy:** 0.6607  
-- **Training F1:** 0.5547  
-- **Validation F1:** 0.5558  
-
-**Set C**
-- **Training accuracy:** 0.6717  
-- **Validation accuracy:** 0.6710  
-- **Training F1:** 0.5727  
-- **Validation F1:** 0.5717  
-
-### Model 4 Results: XGBoost
-
-The XGBoost classifier was also evaluated on the processed feature set. The model achieved:
-
-- **Training accuracy:** 0.6818  
-- **Validation accuracy:** 0.6783  
-- **Training F1:** 0.5991  
-- **Validation F1:** 0.5941  
-
-The XGBoost run took **35.48 seconds**.
-
-### PCA Results
-
-Principal Component Analysis was applied to the finalized feature vector. The explained variance results showed that the first principal component accounted for nearly all of the total variance.
-
-| Principal Component | Explained Variance | Cumulative Explained Variance |
-|---|---:|---:|
-| PC1 | 0.99870582 | 0.99870582 |
-| PC2 | 0.00093351 | 0.99963933 |
-| PC3 | 0.00020984 | 0.99984917 |
-| PC4 | 0.00014697 | 0.99999613 |
-| PC5 | 0.00000215 | 0.99999828 |
-| PC6 | 0.00000067 | 0.99999895 |
-| PC7 | 0.00000046 | 0.99999941 |
-| PC8 | 0.00000036 | 0.99999976 |
-| PC9 | 0.00000024 | 1.00000000 |
-
-The full PCA step took **7.00 seconds**. A second PCA run using only **1 principal component** took **0.68 seconds**, with that single component explaining **0.99870582** of the variance.
-
-### Random Forest with PCA Results
-
-A Random Forest model was also trained on PCA-reduced features using **1 principal component**. This model achieved:
-
-- **Training accuracy:** 0.6083  
-- **Validation accuracy:** 0.6090  
-- **Training F1:** 0.4601  
-- **Validation F1:** 0.4610  
-
-The Random Forest with PCA run took **6.57 seconds**.
-
-### K-Means Clustering Results
-
-K-means clustering was evaluated on the PCA-transformed features for multiple values of `k`. The silhouette scores were:
-
-| k | Training Silhouette | Validation Silhouette |
-|---|---:|---:|
-| 2 | 0.953758 | 0.953758 |
-| 3 | 0.894368 | 0.894368 |
-| 4 | 0.880960 | 0.880960 |
-| 5 | 0.851462 | 0.851462 |
-| 6 | 0.823923 | 0.823923 |
-
-The best result was obtained with **k = 2**. The finalized clustering step reported:
-
-- **Training silhouette:** 0.9538  
-- **Validation silhouette:** 0.9538  
-
-The finalized K-means clustering run took **4.26 seconds**.
-
-### Summary of Supervised Model Results
-
-| Model | Training Accuracy | Validation Accuracy | Training F1 | Validation F1 |
-|---|---:|---:|---:|---:|
-| Logistic Regression | 0.7265 | 0.7217 | 0.6935 | 0.6885 |
-| Linear SVC | 0.6971 | 0.6953 | 0.6287 | 0.6265 |
-| Random Forest | 0.6677 | 0.6678 | 0.5660 | 0.5661 |
-| Random Forest Set B | 0.6600 | 0.6607 | 0.5547 | 0.5558 |
-| Random Forest Set C | 0.6717 | 0.6710 | 0.5727 | 0.5717 |
-| XGBoost | 0.6818 | 0.6783 | 0.5991 | 0.5941 |
-| Random Forest with PCA | 0.6083 | 0.6090 | 0.4601 | 0.4610 |
-
-### Figures Included in Results
-
-The notebook and README include the following result figures:
-
-- model comparison figures
-- training RMSE comparison
-- validation RMSE comparison
-- actual vs. predicted ratings
-- Random Forest feature importance
-- PCA explained variance plot
-- K-means clustering results
+Overall, these results show that hyperparameter tuning provided only small gains for the Random Forest model, while PCA-based feature reduction significantly harmed classification performance in this setting.
 
 - [Discussion](#discussion)
 <a id="discussion"></a>
