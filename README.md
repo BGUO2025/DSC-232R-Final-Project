@@ -1323,6 +1323,7 @@ Additionally, Spark’s distributed ML libraries (such as MLlib) enable models l
 For this project, distributed computing allowed us to efficiently perform large-scale preprocessing, feature engineering, and model training while managing memory constraints. Without distributed processing, loading and analyzing the full dataset would likely require significant hardware resources or extensive data reduction before modeling.
 
 **Second Model Conclusion**
+
 The second model with additional PCA and K-Means Clustering resulted in a consistently declining performance across training and validation sets. However, with hyperparameter tuning produced only minor gains, suggesting that model performance is more constrained by feature representation than by parameter selection. There was a failure to distinguish between rating class and collapsed to predicting only the majority class. Overall, the Random Forest model trained on the original features remained the better-performing approach.
 
 <a id="statement"></a>
