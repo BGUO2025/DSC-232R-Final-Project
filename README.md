@@ -1291,9 +1291,11 @@ For the next stage of this project, we are considering **Gradient Boosted Trees 
 On one hand, Random Forests reduce variance through parallel and independent tree averaging. It is robust, less sensitive to hyperparameters, and less prone to overfitting. On the other, Gradient Boosted Trees can reduce bias by sequentially corrected errors from previous trees. By training both models and evaluating them using RMSE on the validation and test sets, we can determine whether the additional complexity of boosting provides meaningful improvements over the more stable Random Forest baseline. In turn, it can achieve higher accuracy, though it is more computationally intensive and sensitive to hyperparameters, making careful tuning essential. 
 
 **Dimensionality Reduction Compared to Full Feature Set** 
+
 To evaluate the impact of dimensionality reduction, we trained the Random Forest model on PCA-transformed features. In comparison to the full feature set, performance significantly degraded. The PCA-based model collapsed to predicting only the majority class (5-star ratings), indicating that important information needed for class separation may have been lost during transformation. In other words, PCA reduced the model's ability to distinguish between rating categories and performed less effectively than using original features.
 
 **Future Improvements**
+
 Future work can further explore as previously hypothesized where our model can involve methods such as Gradient Boosted Trees to iteratively correct errors from previous trees, reduce bias, and capture more complex patterns. Additionally, further improvements may include enhanced feature eingeering and techniques to address the impact of class imbalance. 
 
 <a id="finalconclusion"></a>
