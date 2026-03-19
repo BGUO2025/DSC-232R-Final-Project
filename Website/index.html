@@ -10,17 +10,16 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
 
-<div class="container">
-
-<!-- SIDEBAR -->
+<!-- sidebar -->
 
 <div class="sidebar">
-    <div class="logo">Analytics</div>
+    <div class="logo">ReviewScope</div>
+
     <div class="sidebar-menu">
         <a href="#overview" class="menu-item">
             <i class="fa-solid fa-gauge"></i>
@@ -34,9 +33,9 @@
             <i class="fa-solid fa-diagram-project"></i>
             <span>EDA</span>
         </a>
-        <a href="#analysis" class="menu-item">
-            <i class="fa-solid fa-message"></i>
-            <span>Analysis</span>
+        <a href="#machinelearning" class="menu-item">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Machine Learning</span>
         </a>
         <a href="#conclusion" class="menu-item">
             <i class="fa-solid fa-gear"></i>
@@ -45,8 +44,6 @@
     </div>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="main">
 
 <!-- HERO + QUICK STATS -->
 <section class="hero">
@@ -54,12 +51,20 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-        <h1>Amazon Review Score Prediction</h1>
-
-        <p>
-        Predicting customer review ratings from over 102 million Amazon reviews 
-        using distributed machine learning pipelines built with PySpark.
-        </p>
+        <div class="section-header">
+        <h2 class="section-title">
+            Amazon Reviews: Predicting Ratings
+        </h2>
+            <p class="section-subtext">
+                This project analyzes <strong>Amazon U.S. customer reviews</strong> to predict review
+                scores (<strong>star_rating</strong>) using <strong>PySpark</strong> for scalable
+                data processing and machine learning. Due to the scale of the dataset, distributed computing techniques were
+                required to efficiently process and analyze the data. The objective is
+                to predict review ratings from textual and metadata features, enabling
+                practical applications such as automated sentiment analysis and product
+                quality monitoring. 
+            </p>
+    </div>
 
         <div class="hero-buttons">
             <a href="#overview" class="btn-primary">Explore Project</a>
@@ -80,30 +85,17 @@
     
     </div>
 </section>
+
+<div class="container">
+
+<!-- MAIN CONTENT -->
+<div class="main">
     
 <!-- OVERVIEW -->
 
 <section id="overview">
-    <div class="section-header">
-        <span class="section-label">OVERVIEW</span>
-        <h2 class="section-title">
-            Predicting Review Ratings at Scale
-        </h2>
-            <p class="section-subtext">
-                This project analyzes <strong>Amazon U.S. customer reviews</strong> to predict review
-                scores (<strong>star_rating</strong>) using <strong>PySpark</strong> for scalable
-                data processing and machine learning. Due to the scale of the dataset, distributed computing techniques were
-                required to efficiently process and analyze the data. The objective is
-                to predict review ratings from textual and metadata features, enabling
-                practical applications such as automated sentiment analysis and product
-                quality monitoring. However, building predictive models at this scale introduces several
-                challenges including <strong>class imbalance in ratings</strong>,
-                <strong>high-dimensional text features</strong>, and the
-                <strong>computational complexity</strong> of large-scale processing.
-            </p>
-    </div>
-
-    <!-- Cards -->
+    <h2> Overview </h2>
+        <!-- Cards -->
     <div class="cards">
         <div class="card">
             <h2>
@@ -137,9 +129,7 @@
         </div>
 
     </div>
-</section>
 
-<section id="star-rating-distribution">
   <div class="two-column-wrapper">
     
     <div class="chart-wrapper">
@@ -150,144 +140,167 @@
     </div>
 
     <div class="text-wrapper">
+      <h2 class="text-title">Insights</h2>
+      <p>
+        The distribution of our target variable, star_rating, is highly skewed, with the majority of reviews 
+        concentrated in the 4- and 5-star range as lower ratings are relatively underrpresented. This imbalance 
+        highlights the need for resampling strategies, class weighting, and proper feature selection. 
+      </p>
+
       <h2 class="text-title">Challenges</h2>
       <p>
-        Working with over 102 million reviews introduces challenges such as
-        high-dimensional text data, class imbalance across ratings, and
-        computational overhead for distributed processing. The star rating
-        distribution helps identify these issues and informs feature engineering
-        and model selection.
+        Other computational and analytical challenges beyond the highly skewed ratings involve storage and processing
+        demands, limited data processing resources, and appropriately handling a dataset that includes high-dimensional 
+        text and sparsely populated categories. These characteristics require appropriate feature engineering, data balancing, and 
+        algorithm selection to achieve accurate predictions. 
       </p>
     </div>
-
   </div>
 </section>
 
 <!-- PREPROCESSING -->
-
 <section id="preprocessing">
 
-    <h2> Data Preprocessing </h2>
-    
+    <h2>Data Preprocessing</h2>
+
+    <div class="preprocessing-wrapper">
+
+        <!-- LEFT SIDE (3 PANELS) -->
+        <div class="left-column">
+
+    <!-- Panel 1: Missing Values -->
     <div class="panel">
-        <h3>Feature Engineering</h3>
-
-        <div class="feature-cards">
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="feature-front">Helpfulness Ratio</div>
-                    <div class="feature-back">Proportion of helpful votes out of total votes</div>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="feature-front">Review Length</div>
-                    <div class="feature-back">Total characters in the review body</div>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="feature-front">Review Word Count</div>
-                    <div class="feature-back">Number of words in the review body</div>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="feature-front">Headline Length</div>
-                    <div class="feature-back">Number of characters in the review headline</div>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="feature-front">Headline Word Count</div>
-                    <div class="feature-back">Number of words in the review headline</div>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="feature-front">Category Encoding</div>
-                    <div class="feature-back">Numerical encoding of product category</div>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="feature-front">Verified Purchase Encoding</div>
-                    <div class="feature-back">Encoding of whether purchase was verified</div>
-                </div>
-            </div>
-        </div>
+        <h3>Missing Values</h3>
+        <p>
+            Reviews missing <code>review_body</code> were excluded, as they provide no textual signal for predicting ratings.
+            Only reviews from the <strong>U.S. marketplace</strong> were retained to maintain English-language consistency.
+            Missing values are extremely rare (<0.02%), so simple deletion or deterministic imputation is sufficient.
+        </p>
     </div>
+
+    <!-- Panel 2: Data Imbalance -->
+    <div class="panel">
+        <h3>Data Imbalance</h3>
+        <p>
+            Some product categories have different counts, and the target variable <code>star_rating</code> is skewed toward 4–5 stars.
+            We use <strong>Spark</strong> to reduce computation overhead. If imbalance affects modeling, class weighting or resampling techniques are applied.
+        </p>
+    </div>
+
+    <!-- Panel 3: Feature Transformations -->
+    <div class="panel">
+        <h3>Feature Transformations</h3>
+        <p>
+            <ul>
+                <li><strong>Helpfulness Ratio:</strong> <code>helpful_votes / total_votes</code> with safeguards for zero votes.</li>
+                <li><strong>Review Length:</strong> Numerical feature capturing the length of <code>review_body</code>.</li>
+                <li><strong>Product Category:</strong> One-hot encoded for modeling.</li>
+                <li>All features combined into a single vector for ML models.</li>
+            </ul>
+        </p>
+    </div>
+
+</div>
+
+        <!-- RIGHT SIDE (IMAGE / ANIMATION) -->
+        <lottie-player
+            src="../lottie/Test.json"
+            background="transparent"
+            speed="0.9"
+            loop
+            autoplay
+            class="lottie-animation">
+        </lottie-player>
+
+    </div>
+
 </section>
 
 <!-- EDA -->
-
 <section id="eda">
-    <h2> Exploratory Data Analysis </h2>
+  <h2> Exploratory Data Analysis </h2>
 
-    <div class="panel charts-row">
-        <div class="chart-container">
-            <h3>Train/Test Errors</h3>
-                <canvas id="traintesterrors"></canvas>
-        </div>
+  <div class="two-column-wrapper">
 
-        <div class="chart-container">
-            <h3>Random Forest Feature Importance</h3>
-                <canvas id="featureimportance"></canvas>
-        </div>
+    <!-- LEFT COLUMN: TWO CHARTS -->
+    <div class="eda-panel">
+        <h2 class="eda-section-title">Train/Test Errors</h2>
+        <canvas id="traintesterrors"></canvas>
     </div>
-</section>
 
-<!-- ANALYSIS -->
-
-<section id="analysis">
- <h2>Analysis</h2>
-
-  <!-- Panel 1 -->
-  <div class="analysis-card">
-    <div class="card-img-wrapper">
-      <img src="../images/Model-Performance.png" alt="Model Fit Screenshot" />
+    <div class="eda-panel">
+        <h2 class="eda-section-title">RF Feature Importance</h2>
+        <canvas id="featureimportance"></canvas>
     </div>
-    <div class="card-text-wrapper">
-      <h3>Model Fit & Performance</h3>
+
+    <div class="text-wrapper">
+        <h3>Train/Test Error Analysis</h3>
       <p>
-        Logistic Regression achieved 60.84% training accuracy and 60.69% validation accuracy. Random Forest improved slightly with 60.98% train and 60.83% validation accuracy, showing minimal underfitting. Feature interactions are better captured with tree-based models.
+
+        We evaluated the <strong>Random Forest classifier</strong> across different numbers of trees (1–49) to understand model complexity effects. 
+        Performance improves initially as trees increase but eventually plateaus. The small gap between training and validation curves suggests minimal overfitting. Overall, the model may be <strong>underfitting</strong>.
+      </p>
+
+      <h3>Feature Importance Analysis</h3>
+      <p>
+        Text-based features dominate prediction performance: <strong>review_word_counts</strong> and <strong>review_len</strong> are the most important. 
+        This shows that more detailed reviews provide stronger signals for star ratings. 
+        In contrast, <strong>verified_purchase_idx</strong> has negligible impact, meaning verified purchases do not strongly influence predictions.
       </p>
     </div>
-  </div>
 
-  <!-- Panel 2 -->
-  <div class="analysis-card">
-    <div class="card-img-wrapper">
-      <img src="https://miro.medium.com/1*U3WRRwLx3zeDkHmIVGLJdw.gif" alt="Hyperparameter Tuning" />
-    </div>
-    <div class="card-text-wrapper">
-      <h3>Random Forest Experiments</h3>
-      <p>
-        We experimented with different hyperparameters: more trees, deeper max depth, and varying feature sampling strategies. The tuned model slightly improved validation accuracy, balancing bias and variance.
-      </p>
-    </div>
-  </div>
 
-  <!-- Panel 3 -->
-  <div class="analysis-card">
-    <div class="card-img-wrapper">
-      <img src="https://via.placeholder.com/400x250" alt="Next Models" />
-    </div>
-    <div class="card-text-wrapper">
-      <h3>Next Steps: Gradient Boosted Trees</h3>
-      <p>
-        Gradient Boosted Trees (GBT) will capture non-linear feature interactions more effectively. Comparing RF and GBT helps understand bias vs variance trade-offs. GBT requires careful tuning and is computationally intensive.
-      </p>
-    </div>
   </div>
 </section>
 
+<!-- MACHINE LEARNING -->
+<section id="machinelearning">
+    <h2>Machine Learning</h2>
+
+    <div class="ml-wrapper">
+        <div class="panel ml-panel">
+            <div class="ml-panel-content">
+                <div class="ml-panel-text">
+                    <h3>Model 1: Random Forest w/ Hyperparameter Tuning</h3>
+                    <ul>
+                        <li>Set A: 25 trees, depth 8 → Train: 60.98%, Validation: 60.83%</li>
+                        <li>Set B: 20 trees, depth 6 → Train: 60.85%, Validation: 60.70%</li>
+                        <li>Set C: 25 trees, depth 10 → Train: 61.19%, Validation: 61.03%</li>
+                    </ul>
+                    <p>
+                        Increasing tree depth improved performance slightly. The dataset’s class imbalance still causes bias toward higher ratings.
+                    </p>
+                </div>
+                <div class="ml-panel-image">
+                    <img src="../images/RMSE.png" alt="Random Forest Diagram">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="panel ml-panel">
+            <div class="ml-panel-content">
+                <div class="ml-panel-text">
+                    <h3>Model 2: Random Forest w/ PCA + K-Means Clustering</h3>
+                    <p>
+                        Logistic Regression was used as a baseline model. Using the engineered features and class weights:
+                    </p>
+                    <ul>
+                        <li>Training Accuracy: 60.84%</li>
+                        <li>Validation Accuracy: 60.69%</li>
+                    </ul>
+                    <p>
+                        The model establishes an initial benchmark and highlights the challenge of predicting skewed star ratings.
+                    </p>
+                </div>
+                <div class="ml-panel-image">
+                    <img src="../images/ConfusionMatrix.png" alt="Logistic Regression Diagram">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 <!-- CONCLUSION -->
 <section id="conclusion">
