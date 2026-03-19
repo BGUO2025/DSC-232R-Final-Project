@@ -20,19 +20,19 @@ html, body {
     margin: 0 auto;      /* centers everything */
 }
 
-.main{
-    padding:10px 80px;
+.main {
+    padding: 120px 80px 10px 80px;  /* top padding = sidebar height + spacing */
 }
 
 .main section {
-    height: 100vh;         /* full viewport height */
-    padding: 20px 40px;    /* inner spacing */
+    min-height: 100vh;
+    padding: 20px 40px;
     box-sizing: border-box;
-    scroll-snap-align: start;  /* aligns for snap scrolling */
+    overflow: visible; /* avoid clipping content under sidebar */
 }
 
 .main section h2 {
-    scroll-margin-top: 120px; /* height of your sidebar/logo + some padding */
+    scroll-margin-top: 100px; /* height of your sidebar/logo + some padding */
 }
 
 header{
@@ -43,7 +43,7 @@ header{
 
 /* ------------------- SECTIONS ------------------- */
 section {
-    min-height: 100vh;           /* full page */
+    min-height: 90vh;           /* full page */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -301,9 +301,9 @@ background:#f2f2f2;
 }
 
 .card{
-    background:linear-gradient(135deg,#c0d8eb,#053c66);
+    background:linear-gradient(135deg,#c0d1eb,#004d87);
     color:white;
-    padding:25px;
+    padding:15px;
     border-radius:10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     cursor: pointer; 
@@ -360,6 +360,14 @@ background:#f2f2f2;
     font-size: 28px;      /* optional: adjust size */
     font-weight: 700;     /* bold */
     color: #ffffff;       /* white text, matches your site */
+}
+
+.section-title2 {
+    font-size: clamp(24px, 3vw, 30px); /* slightly smaller if needed */
+    font-weight: 700;
+    color: #5b5b5b;                     /* pure white for contrast */
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 /* Data Preprocessing */
@@ -447,15 +455,15 @@ background:#f2f2f2;
 
 /* MACHINE LEARNING */
 .ml-panel {
-    margin-bottom: 30px;          /* spacing between panels */
+    margin-bottom: 10px;          /* spacing between panels */
     padding: 15px;
-    background-color: #1e1e2f;    /* panel background */
+    background-color: #374764;    /* panel background */
     border-radius: 8px;
 }
 
 .ml-panel-content {
     display: flex;
-    gap: 20px;                    /* space between text and image */
+    gap: 10px;                    /* space between text and image */
     align-items: flex-start;
     flex-wrap: wrap;               /* responsive for smaller screens */
 }
@@ -463,6 +471,10 @@ background:#f2f2f2;
 .ml-panel-text {
     flex: 1 1 60%;                /* text takes ~60% */
     color: #c5c9d0;
+}
+.ml-panel-text {
+    font-size: 14px;   /* smaller text */
+    line-height: 1.4;  /* adjust spacing to match smaller text */
 }
 
 .ml-panel-text h3 {
