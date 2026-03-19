@@ -1274,6 +1274,56 @@ Log regression up to 72%
 <p align='center'>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=60&section=header&text=Introduction&fontSize=30&fontColor=ffffff"/>
 </p>
+<p align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=d49259&&height=90&section=header&text=Amazon%20Data%20Analysis%20And%20Review%20Score%20Prediction&fontSize=35&fontColor=ffffff"/>
+</p>
+
+## Project Overview 
+This project analyzes Amazon U.S customer reviews to predict review scores (star_rating) using **PySpark** for large-scale data processing and machine learning. The dataset contains over **102 million product reviews** collected from the Amazon marketplace between **1995 and 2015**, along with associated metadata such as product category, helpfulness votes, purchase verification status, and review text. 
+
+To prepare the dataset, distributed computing techniques were required to efficiently process and analyze appropriately. We are aiming to predict review ratings from textual and metadata features, allowing insights on practical applications in areas such as automated sentment analysis and product quality monitoring. However, building such predictive models presents several challenges, including class imblance in ratings, high-dimensional text features, and the computational complexity of processing large-scale records. 
+
+As we address these challenges, we will perform distributed data exploration, feature engineering, and machine learning pipeline construction. The workflow includes **Exploratory Data Analysis** to handle missing values and transform features, and feature engineering to create meaningful predictors.
+
+We hope to display how large-scale customer review datasets can be transformed into structured features suitable for predictive modeling. 
+
+**Key Objectives:**
+* Understand the **distribution** of reviews across products and product categories 
+* Identify **patterns** in customer engagement metrics 
+* Handle **missing** data and address class **imbalances** 
+* Engineer **informative** features from review text and metadata
+* Prepare scalable feature **pipelines** for machine learning modeling 
+
+## Table of Contents
+(old format, see at the very end for restarted format)
+- [Milestone 2](#milestone2)
+- [Milestone 3](#milestone3)
+- [Milestone 4](#milestone4)
+
+
+<a id="milestone2"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:FB923C&height=90&section=header&text=Milestone%202&fontSize=40&fontColor=ffffff"/>
+</p>
+
+<a id="github"></a>
+
+<p align='center'>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=598ad4&height=60&section=header&text=Github&fontSize=30&fontColor=ffffff"/>
+</p>
+
+
+
+**GitHub Organization / ID:**  
+BGUO2025
+
+**Project Repository:**  
+[DSC-232R Final Project Repository](https://github.com/BGUO2025/DSC-232R-Final-Project)
+
+**Dataset Source:**  
+[Amazon Customer Reviews Dataset (Kaggle)](https://www.kaggle.com/datasets/cynthiarempel/amazon-us-customer-reviews-dataset)
 
 - [Figures](#figures)
 <a id="figures"></a>
