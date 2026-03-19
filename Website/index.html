@@ -134,7 +134,7 @@
     
     <div class="chart-wrapper">
       <div class="panel">
-        <h2 class="section-title">Star Rating Distribution</h2>
+        <h2 class="section-title2">Star Rating Distribution</h2>
         <canvas id="ratingChart"></canvas>
       </div>
     </div>
@@ -281,38 +281,77 @@
         <div class="panel ml-panel">
             <div class="ml-panel-content">
                 <div class="ml-panel-text">
-                    <h3>Model 2: Random Forest w/ PCA + K-Means Clustering</h3>
-                    <p>
-                        Logistic Regression was used as a baseline model. Using the engineered features and class weights:
-                    </p>
-                    <ul>
-                        <li>Training Accuracy: 60.84%</li>
-                        <li>Validation Accuracy: 60.69%</li>
-                    </ul>
-                    <p>
-                        The model establishes an initial benchmark and highlights the challenge of predicting skewed star ratings.
-                    </p>
-                </div>
+            <h3>Model 2: Random Forest w/ PCA + K-Means Clustering</h3>
+
+            <h4>RF with Standard Features</h4>
+            <p>
+                The left-side matrix shows a strong bias toward predicting 5-star ratings, with a large concentration of predictions in the final column. 
+                While the model correctly classifies many true 5-star reviews, it frequently misclassifies ratings 1–4 as 5, 
+                particularly for classes 3 and 4 where the majority of predictions are pushed upward. In other words, this pattern indicates that the model
+                is heavily influenced by class imbalance as it captures high-rating behavior well, but performs poorly on lower ratings; this suggests limited 
+                ability to learn meaningful distinctions across the full rating spectrum.
+            </p>
+
+            <h4>RF with PCA Features</h4>
+            <p>
+                Using PCA-transformed features shows a complete collapse in predictive performance, with the model predicting only 5-star ratings for every 
+                instance. All observations, regardless of their true rating, are classified as 5, resulting in zero correct predictions for classes 1–4 and 
+                only correct predictions for true 5-star ratings.
+            </p>
+        </div>
                 <div class="ml-panel-image">
                     <img src="../images/ConfusionMatrix.png" alt="Logistic Regression Diagram">
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
 <!-- CONCLUSION -->
 <section id="conclusion">
-    <h2> Conclusion </h2>
+    <h2>Conclusion</h2>
 
     <div class="panel">
-        <h3>Conclusion</h3>
-            <p>
-                Random Forest models achieved the best performance, with the highest validation accuracy of
-                <strong>0.6103</strong>. Feature importance analysis revealed that review length,
-                word count, and helpfulness ratio were the strongest predictors of star ratings.
-            </p>
+        <table style="width:100%; border-collapse: collapse; margin-top:20px; color:#c5c9d0;">
+            <thead>
+                <tr style="background-color:#1f3865; color:white;">
+                    <th style="padding:10px; border:1px solid #444;">Category</th>
+                    <th style="padding:10px; border:1px solid #444;">Observation</th>
+                    <th style="padding:10px; border:1px solid #444;">Impact / Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color:#2c4a8c;">
+                    <td style="padding:10px; border:1px solid #444;">True Positives</td>
+                    <td style="padding:10px; border:1px solid #444;">Correctly predicted 5-star reviews</td>
+                    <td style="padding:10px; border:1px solid #444;">High-rating reviews are well captured; model reflects common patterns.</td>
+                </tr>
+                <tr style="background-color:#345aa3;">
+                    <td style="padding:10px; border:1px solid #444;">True Negatives</td>
+                    <td style="padding:10px; border:1px solid #444;">Correctly predicted low ratings (1–3)</td>
+                    <td style="padding:10px; border:1px solid #444;">Limited coverage; lower ratings are harder to predict accurately.</td>
+                </tr>
+                <tr style="background-color:#2c4a8c;">
+                    <td style="padding:10px; border:1px solid #444;">False Positives</td>
+                    <td style="padding:10px; border:1px solid #444;">Predicted high rating (5) but actual was lower</td>
+                    <td style="padding:10px; border:1px solid #444;">Bias toward 5-star ratings due to class imbalance; affects precision for lower ratings.</td>
+                </tr>
+                <tr style="background-color:#345aa3;">
+                    <td style="padding:10px; border:1px solid #444;">False Negatives</td>
+                    <td style="padding:10px; border:1px solid #444;">Predicted lower rating but actual was 5</td>
+                    <td style="padding:10px; border:1px solid #444;">Rare, but indicates the model sometimes underestimates highly positive reviews.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top:20px; line-height:1.6;">
+            <strong>Precision vs. Recall:</strong> The model exemplifies a high recall for 5-star ratings, successfully identifying the majority of highly positive reviews. 
+            However, at the expense at reduced precision for lower-rated classes, the model also frequently misclassifies ratings 1 through 4 due to class imbalance.
+            From a predictive performance perspective, this trade-off indicates that the model prioritizes sensitivity to the dominant class over the accurate differentiation 
+            of less frequent rating levels. Consequently, while the model is effective at capturing positive sentiment, its predictive reliability for intermediate or negative 
+            ratings is limited. Future work could mitigate this skew through techniques such as class weighting, resampling, or incorporating additional discriminative features to 
+            enhance the balance between precision and recall across all rating categories.
+        </p>
     </div>
 </section>
 
